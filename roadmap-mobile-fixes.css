@@ -1,0 +1,232 @@
+/* BuySooner Roadmap mobile rendering fixes
+   Loaded from roadmap.html. Keeps page-specific injected styles intact while correcting mobile-only layout issues. */
+
+@media (max-width: 900px) {
+  .rmdream-page {
+    padding: 28px 20px 30px !important;
+  }
+
+  .rmdream-brand {
+    display: flex !important;
+    grid-template-columns: none !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .rmdream-brand > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 56% !important;
+  }
+
+  .rmdream-label {
+    flex: 0 0 auto !important;
+    max-width: 42% !important;
+    text-align: right !important;
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
+    font-weight: 850 !important;
+    padding-top: 2px !important;
+  }
+
+  .rmdream-logo {
+    font-size: 24px !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .rmdream-mark {
+    width: 58px !important;
+    height: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .rmdream-tag {
+    font-size: 11px !important;
+  }
+
+  .rmdream-title {
+    font-size: clamp(32px, 9.4vw, 36px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.052em !important;
+    max-width: 100% !important;
+  }
+
+  .rmdream-divider {
+    margin: 18px auto 16px !important;
+  }
+
+  .rmdream-sub {
+    font-size: 20px !important;
+    line-height: 1.24 !important;
+  }
+
+  .rm3-exit {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .rm3-exit h3 {
+    margin-bottom: 16px !important;
+    font-size: 27px !important;
+    line-height: 1.08 !important;
+  }
+
+  .rm3-exit-steps {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .rm3-step {
+    min-height: 0 !important;
+    padding: 17px 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .rm3-step h4 {
+    margin-bottom: 7px !important;
+    font-size: 19px !important;
+    line-height: 1.1 !important;
+  }
+
+  .rm3-step p {
+    font-size: 14.5px !important;
+    line-height: 1.36 !important;
+  }
+
+  .rm3-arrow {
+    min-height: 14px !important;
+    height: 14px !important;
+    line-height: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    font-size: 0 !important;
+  }
+
+  .rm3-arrow::before {
+    content: "↓" !important;
+    display: block !important;
+    color: #087a78 !important;
+    font-size: 20px !important;
+    line-height: 14px !important;
+    font-weight: 950 !important;
+    text-align: center !important;
+  }
+
+  .rm3-summary {
+    padding: 22px 18px !important;
+  }
+
+  .rm3-summary h2 {
+    font-size: 26px !important;
+  }
+
+  .rm3-summary p {
+    font-size: 18px !important;
+    line-height: 1.38 !important;
+  }
+
+  .rm5-shift {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .rm5-shift h2 {
+    margin-bottom: 16px !important;
+    font-size: 27px !important;
+    line-height: 1.12 !important;
+  }
+
+  .rm5-shift-table {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .rm5-shift-head {
+    padding: 13px 10px !important;
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+    min-height: 0 !important;
+  }
+
+  .rm5-shift-head.right {
+    border-top: 0 !important;
+  }
+
+  .rm5-shift-cell {
+    padding: 13px 12px !important;
+    min-height: 58px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 13.5px !important;
+    line-height: 1.25 !important;
+    font-weight: 850 !important;
+  }
+
+  .rm5-shift-cell.right {
+    background: #f0f8f7 !important;
+    color: #056261 !important;
+    border-left: 1px solid #d7e5e4 !important;
+  }
+
+  .rm5-shift-cell:nth-child(4n),
+  .rm5-shift-cell:nth-child(4n-1) {
+    background: #f7fbfb !important;
+  }
+
+  .rm5-shift-cell.right:nth-child(4n),
+  .rm5-shift-cell.right:nth-child(4n-1) {
+    background: #edf8f7 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .rmdream-page {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .rmdream-title {
+    font-size: clamp(31px, 9vw, 34px) !important;
+  }
+
+  .rmdream-label {
+    font-size: 10px !important;
+  }
+
+  .rm3-exit {
+    padding: 20px 16px !important;
+  }
+
+  .rm3-exit h3 {
+    font-size: 25px !important;
+  }
+
+  .rm3-step {
+    padding: 16px !important;
+  }
+
+  .rm5-shift {
+    padding: 20px 16px !important;
+  }
+
+  .rm5-shift h2 {
+    font-size: 25px !important;
+  }
+
+  .rm5-shift-head {
+    font-size: 12.5px !important;
+    padding: 12px 8px !important;
+  }
+
+  .rm5-shift-cell {
+    font-size: 13px !important;
+    padding: 12px 10px !important;
+    min-height: 56px !important;
+  }
+}

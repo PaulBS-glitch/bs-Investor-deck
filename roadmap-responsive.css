@@ -1,0 +1,656 @@
+/* BuySooner responsive override layer
+   Desktop: wider full-browser shell.
+   Mobile: single-column, no sideways squeeze, no collapsed text columns. */
+
+:root {
+  --rm-shell-max: 1120px;
+  --rm-mobile-pad: 16px;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+}
+
+/* Laptop and large desktop opening app screen */
+@media (min-width: 1100px) {
+  body:has(.page) {
+    padding: 0 !important;
+  }
+
+  .page {
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: center !important;
+    padding: 42px clamp(28px, 5vw, 78px) 52px !important;
+  }
+
+  .shell {
+    width: 100% !important;
+    max-width: 1540px !important;
+  }
+
+  .card,
+  .screen.active .card {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .shell {
+    max-width: 1660px !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1099px) {
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 28px 18px 38px !important;
+  }
+
+  .shell,
+  .screen,
+  .screen.active,
+  .card,
+  .screen.active .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Mobile app screen */
+@media (max-width: 700px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100svh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    background: #f7fbfb !important;
+  }
+
+  body,
+  body *,
+  body *::before,
+  body *::after {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  .page,
+  .shell,
+  .screen,
+  .screen.active,
+  .card,
+  .screen.active .card {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .page {
+    display: block !important;
+    min-height: 100svh !important;
+    padding: 0 !important;
+  }
+
+  .card,
+  .screen.active .card {
+    border-radius: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .brand,
+  .brand-row {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 22px var(--rm-mobile-pad) 0 !important;
+    margin: 0 0 16px !important;
+  }
+
+  .brand h1,
+  .brand-block h1 {
+    font-size: clamp(32px, 10vw, 40px) !important;
+    line-height: 1 !important;
+  }
+
+  .progress {
+    width: 100% !important;
+    min-width: 0 !important;
+    text-align: left !important;
+    margin-top: 16px !important;
+  }
+
+  .hero,
+  .form-area,
+  .content,
+  .confirm-panel,
+  .bridge-content,
+  .preapply-content,
+  .ready-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px var(--rm-mobile-pad) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Force common grid sections to one column. */
+  .fact-strip,
+  .fields,
+  .radio-row,
+  .actions,
+  .waiting-tax,
+  .market-controls,
+  .two-cards,
+  .choice-grid,
+  .equation,
+  .reality-grid,
+  .shift-grid,
+  .ownership-grid,
+  .bottom-line-box,
+  .footer-strip,
+  .insight-top,
+  .choice-card,
+  .section-heading,
+  .confirm-buttons,
+  .confirm-table,
+  .bridge,
+  .footer-statement,
+  .timeline-steps,
+  .proof-strip,
+  .apply-grid,
+  .preapply-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 14px !important;
+  }
+
+  .field.full {
+    grid-column: auto !important;
+  }
+
+  .fact-card,
+  .section-card,
+  .reality-card,
+  .shift-card,
+  .insight-card,
+  .equation-card,
+  .ownership-panel,
+  .bottom-line-left,
+  .bottom-right,
+  .choice,
+  .choice-card,
+  .bridge,
+  .waiting-tax,
+  .confirm-panel,
+  .timeline-step,
+  .proof-item,
+  .apply-card,
+  .save-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .fact-card {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+  }
+
+  .ownership-line {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+  }
+
+  .own-amount,
+  .confirm-detail,
+  .mini-brand,
+  .card-value,
+  .cost-amount,
+  .waiting-tax .amount,
+  .bottom-metric,
+  .equation-card strong {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .market-panel,
+  .bottom-line-left {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 1px solid var(--border, #d7e5e4) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 16px !important;
+  }
+
+  .plus-circle,
+  .or-circle,
+  .symbol {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  button {
+    min-height: 50px !important;
+    padding: 14px 18px !important;
+    white-space: normal !important;
+  }
+
+  table,
+  .confirm-table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  /* Hard screen-specific mobile hero reset. This is intentionally placed after all general rules. */
+  #screen2.screen.active .hero,
+  #screenCompromise.screen.active .hero,
+  #screenBridge.screen.active .hero,
+  #screenOwnership.screen.active .hero,
+  #screenReady.screen.active .hero,
+  #screenPreApply.screen.active .hero {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    padding: 24px var(--rm-mobile-pad) !important;
+    overflow: visible !important;
+  }
+
+  #screen2.screen.active .hero-with-image,
+  #screen2.screen.active .p2-hero,
+  #screenCompromise.screen.active .hero-with-image,
+  #screenCompromise.screen.active .p2-hero,
+  #screenBridge.screen.active .hero-with-image,
+  #screenBridge.screen.active .bridge-hero,
+  #screenOwnership.screen.active .hero-with-image,
+  #screenOwnership.screen.active .ownership-hero,
+  #screenReady.screen.active .hero-with-image,
+  #screenReady.screen.active .ready-hero-split,
+  #screenPreApply.screen.active .hero-with-image,
+  #screenPreApply.screen.active .preapply-hero {
+    display: block !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    grid-auto-flow: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 0 !important;
+    padding: 24px var(--rm-mobile-pad) !important;
+    overflow: visible !important;
+  }
+
+  #screen2.screen.active .hero-with-image > *,
+  #screen2.screen.active .p2-hero > *,
+  #screenCompromise.screen.active .hero-with-image > *,
+  #screenCompromise.screen.active .p2-hero > *,
+  #screenBridge.screen.active .hero-with-image > *,
+  #screenBridge.screen.active .bridge-hero > *,
+  #screenOwnership.screen.active .hero-with-image > *,
+  #screenOwnership.screen.active .ownership-hero > *,
+  #screenReady.screen.active .hero-with-image > *,
+  #screenReady.screen.active .ready-hero-split > *,
+  #screenPreApply.screen.active .hero-with-image > *,
+  #screenPreApply.screen.active .preapply-hero > * {
+    display: block !important;
+    float: none !important;
+    position: relative !important;
+    transform: none !important;
+    inset: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #screen2.screen.active .hero-copy,
+  #screenCompromise.screen.active .hero-copy,
+  #screenBridge.screen.active .hero-copy,
+  #screenOwnership.screen.active .hero-copy,
+  #screenReady.screen.active .hero-copy,
+  #screenPreApply.screen.active .hero-copy,
+  #screen2.screen.active .p2-personal,
+  #screenCompromise.screen.active .p2-personal,
+  #screenOwnership.screen.active #ownHeroHeading,
+  #screenReady.screen.active .hero h2 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  #screen2.screen.active .p2-personal,
+  #screenCompromise.screen.active .p2-personal {
+    border-radius: 18px !important;
+    margin: 18px 0 16px !important;
+    padding: 14px 16px !important;
+  }
+
+  #screen2.screen.active .hero-copy h2,
+  #screenCompromise.screen.active .hero-copy h2,
+  #screenBridge.screen.active .hero-copy h2,
+  #screenOwnership.screen.active .hero-copy h2,
+  #screenOwnership.screen.active #ownHeroHeading,
+  #screenReady.screen.active .hero h2,
+  #screenPreApply.screen.active .hero-copy h2 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    font-size: clamp(32px, 9vw, 42px) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  #screen2.screen.active .hero-copy p,
+  #screen2.screen.active .hero-copy h3,
+  #screenCompromise.screen.active .hero-copy p,
+  #screenCompromise.screen.active .hero-copy h3,
+  #screenBridge.screen.active .hero-copy p,
+  #screenBridge.screen.active .hero-copy h3,
+  #screenOwnership.screen.active .hero-copy p,
+  #screenOwnership.screen.active .hero-copy h3,
+  #screenReady.screen.active .hero p,
+  #screenReady.screen.active .hero h3,
+  #screenPreApply.screen.active .hero-copy p,
+  #screenPreApply.screen.active .hero-copy h3 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    font-size: 16px !important;
+    line-height: 1.42 !important;
+  }
+
+  #screen2.screen.active .hero-image-panel,
+  #screen2.screen.active .hero-photo-panel,
+  #screenCompromise.screen.active .hero-image-panel,
+  #screenCompromise.screen.active .hero-photo-panel,
+  #screenBridge.screen.active .hero-image-panel,
+  #screenBridge.screen.active .hero-photo-panel,
+  #screenOwnership.screen.active .hero-image-panel,
+  #screenOwnership.screen.active .hero-photo-panel,
+  #screenReady.screen.active .hero-image-panel,
+  #screenReady.screen.active .hero-photo-panel,
+  #screenReady.screen.active .final-trust-visual,
+  #screenPreApply.screen.active .hero-image-panel,
+  #screenPreApply.screen.active .preapply-photo {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 20px 0 0 !important;
+    padding: 0 !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  #screen2.screen.active .hero-image-panel img,
+  #screen2.screen.active .hero-photo,
+  #screenCompromise.screen.active .hero-image-panel img,
+  #screenCompromise.screen.active .hero-photo,
+  #screenBridge.screen.active .hero-image-panel img,
+  #screenBridge.screen.active .hero-photo,
+  #screenOwnership.screen.active .hero-image-panel img,
+  #screenOwnership.screen.active .hero-photo,
+  #screenReady.screen.active .hero-image-panel img,
+  #screenReady.screen.active .hero-photo,
+  #screenReady.screen.active .final-trust-visual img,
+  #screenPreApply.screen.active .hero-image-panel img,
+  #screenPreApply.screen.active .preapply-photo img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: 320px !important;
+    object-fit: cover !important;
+    border-radius: 22px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    --rm-mobile-pad: 13px;
+  }
+
+  .screen.active h1,
+  .screen.active .hero-copy h2,
+  .screen.active .ready-copy h2,
+  .screen.active .ownership-copy h2,
+  .screen.active .bridge-copy h2,
+  .screen.active .preapply-copy h2,
+  .screen.active .path-copy h2,
+  .screen.active .transparency-copy h2,
+  #screenReady .hero h2 {
+    font-size: clamp(30px, 9vw, 38px) !important;
+  }
+}
+
+/* Generated roadmap report */
+#roadmap-root {
+  width: 100%;
+  max-width: var(--rm-shell-max) !important;
+}
+
+#roadmap-root > section {
+  width: 100% !important;
+  max-width: var(--rm-shell-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#roadmap-root button,
+#roadmap-root .rm-btn,
+#roadmap-root .rm9-btn,
+#roadmap-root .rm9a-btn,
+#roadmap-root .rm10-btn,
+#roadmap-root .rm12-next,
+#roadmap-root .rm12-calc-button {
+  touch-action: manipulation;
+}
+
+@media (max-width: 1024px) {
+  .toolbar,
+  #roadmap-root {
+    max-width: 100% !important;
+  }
+
+  #roadmap-root > section {
+    border-radius: 22px !important;
+    padding: 30px 24px !important;
+  }
+
+  #roadmap-root [class*='hero'] {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .toolbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2000 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 11px 14px !important;
+    border-bottom: 1px solid rgba(215,229,228,.9) !important;
+    background: rgba(255,255,255,.96) !important;
+    backdrop-filter: blur(8px) !important;
+    font-size: 14px !important;
+  }
+
+  .toolbar button {
+    min-height: 42px !important;
+    padding: 10px 13px !important;
+    font-size: 12px !important;
+  }
+
+  #roadmap-root,
+  #roadmap-root *,
+  #roadmap-root *::before,
+  #roadmap-root *::after {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #roadmap-root {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  #roadmap-root > section {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-height: calc(100svh - 65px) !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 22px var(--rm-mobile-pad) 28px !important;
+    overflow-x: hidden !important;
+  }
+
+  #roadmap-root [class*='topbar'],
+  #roadmap-root [class*='actions'],
+  #roadmap-root [class*='hero'],
+  #roadmap-root [class*='split'],
+  #roadmap-root [class*='situation'],
+  #roadmap-root [class*='track-grid'],
+  #roadmap-root [class*='drivers'],
+  #roadmap-root [class*='deal'],
+  #roadmap-root [class*='input-grid'],
+  #roadmap-root [class*='results-grid'],
+  #roadmap-root [class*='qa-grid'],
+  #roadmap-root [class*='process-row'],
+  #roadmap-root [class*='bottom-row'],
+  #roadmap-root [class*='trade'],
+  #roadmap-root .rm9a-grid,
+  #roadmap-root .rm9a-results,
+  #roadmap-root .rm9a-deal,
+  #roadmap-root .rm9-equation,
+  #roadmap-root .rm8-process-row,
+  #roadmap-root .rm8-situation {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  #roadmap-root h1,
+  #roadmap-root h2,
+  #roadmap-root h3,
+  #roadmap-root p,
+  #roadmap-root li,
+  #roadmap-root span,
+  #roadmap-root strong,
+  #roadmap-root div {
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  #roadmap-root button,
+  #roadmap-root .rm-btn,
+  #roadmap-root .rm9-btn,
+  #roadmap-root .rm9a-btn,
+  #roadmap-root .rm10-btn,
+  #roadmap-root .rm12-next,
+  #roadmap-root .rm12-calc-button {
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 14px 18px !important;
+    font-size: 15px !important;
+    white-space: normal !important;
+  }
+
+  #roadmap-root table,
+  #roadmap-root .rm-table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    table-layout: fixed !important;
+  }
+}
+
+@media print {
+  body {
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  #roadmap-root,
+  #roadmap-root > section {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
