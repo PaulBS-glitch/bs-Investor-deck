@@ -6,77 +6,72 @@
   <title>02 The Problem</title>
   <link rel="stylesheet" href="investor.css">
   <style>
-    .problem-card-refresh{max-width:1120px}
-    .problem-card-refresh .problem-hero h1{font-size:clamp(48px,6.1vw,76px);line-height:.91;letter-spacing:-.065em;max-width:980px;margin-bottom:18px}
-    .problem-card-refresh .lead{max-width:980px;font-size:clamp(18px,2vw,24px);line-height:1.45}
-    .problem-statement.problem-statement-refresh{padding:24px 26px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(234,246,245,.70));border:1px solid rgba(8,122,120,.18);box-shadow:0 16px 30px rgba(7,31,58,.05)}
-    .problem-statement-refresh .statement-label,.evidence-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
-    .problem-statement-refresh p{margin:0 0 10px}.problem-statement-refresh p:last-child{margin-bottom:0}
-    .evidence-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
-    .evidence-card{border:1px solid rgba(8,122,120,.18);border-radius:18px;padding:18px 20px;background:#fff;box-shadow:0 12px 24px rgba(7,31,58,.045)}
-    .evidence-card strong{display:block;font-size:clamp(32px,4vw,48px);line-height:.95;color:#087a78;letter-spacing:-.045em;margin-bottom:6px}
-    .evidence-card h3{margin:0 0 6px;font-size:15px;color:#071f3a}.evidence-card p{margin:0;color:#43546b;font-size:13px;line-height:1.35;font-weight:700}
-    .problem-chain{display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px}
-    .chain-row{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center;border:1px solid rgba(8,122,120,.20);border-radius:18px;background:#fff;padding:18px 22px;box-shadow:0 10px 20px rgba(7,31,58,.04);position:relative;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-    .chain-row:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.36)}
-    .chain-row span{height:48px;width:48px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-weight:950;letter-spacing:.04em}
-    .chain-row h3{margin:0 0 5px;font-size:20px;color:#071f3a}.chain-row p{margin:0;color:#43546b;font-size:15px;line-height:1.38;font-weight:750}
-    .chain-arrow{display:flex;align-items:center;gap:12px;margin:0 0 0 24px;color:#087a78;font-weight:950;font-size:15px}.chain-arrow:before{content:"";height:18px;width:2px;background:#087a78;border-radius:4px;opacity:.55}.chain-arrow:after{content:"↓";line-height:1}
-    .source-note{font-size:10px;line-height:1.35;color:#66758a;font-weight:700;margin:8px 0 0}
-    .problem-card-refresh .problem-hero,.problem-card-refresh .problem-statement-refresh,.problem-card-refresh .evidence-strip,.problem-card-refresh .problem-chain,.problem-card-refresh .problem-takeaway,.problem-card-refresh .nav{opacity:0;transform:translateY(18px);animation:problemLift .56s ease forwards}
-    .problem-card-refresh .problem-hero{animation-delay:.05s}.problem-card-refresh .problem-statement-refresh{animation-delay:.18s}.problem-card-refresh .evidence-strip{animation-delay:.31s}.problem-card-refresh .problem-chain{animation-delay:.44s}.problem-card-refresh .problem-takeaway{animation-delay:.58s}.problem-card-refresh .nav{animation-delay:.70s}
-    .evidence-card{opacity:0;transform:translateY(12px);animation:problemLift .5s ease forwards}.evidence-card:nth-child(1){animation-delay:.38s}.evidence-card:nth-child(2){animation-delay:.48s}.evidence-card:nth-child(3){animation-delay:.58s}
-    .chain-row{opacity:0;transform:translateX(-16px);animation:chainIn .5s ease forwards}.chain-row:nth-of-type(1){animation-delay:.54s}.chain-row:nth-of-type(3){animation-delay:.66s}.chain-row:nth-of-type(5){animation-delay:.78s}
-    @keyframes problemLift{to{opacity:1;transform:translateY(0)}}@keyframes chainIn{to{opacity:1;transform:translateX(0)}}
-    @media(max-width:840px){.evidence-strip{grid-template-columns:1fr}.chain-row{grid-template-columns:52px 1fr;padding:16px}.problem-card-refresh .problem-hero h1{font-size:44px}.problem-card-refresh .problem-hero,.problem-card-refresh .problem-statement-refresh,.problem-card-refresh .evidence-strip,.problem-card-refresh .problem-chain,.problem-card-refresh .problem-takeaway,.problem-card-refresh .nav,.evidence-card,.chain-row{animation:none;opacity:1;transform:none}}
+    .problem-card-institutional{max-width:1080px;padding:42px 46px 32px!important}
+    .problem-card-institutional .problem-hero{border-bottom:1px solid rgba(7,31,58,.12);padding-bottom:24px;margin-bottom:22px}
+    .problem-card-institutional .problem-hero h1{font-size:clamp(42px,5.2vw,64px);line-height:.96;letter-spacing:-.055em;max-width:960px;margin:8px 0 14px;color:#071f3a}
+    .problem-card-institutional .lead{max-width:920px;font-size:clamp(17px,1.75vw,21px);line-height:1.45;color:#2d3d52;font-weight:800}
+    .institutional-layout{display:grid;grid-template-columns:1.06fr .94fr;gap:22px;align-items:stretch;margin-top:18px}
+    .institutional-panel{border:1px solid rgba(7,31,58,.14);border-radius:18px;background:rgba(255,255,255,.92);padding:22px 24px;box-shadow:0 14px 28px rgba(7,31,58,.045)}
+    .panel-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
+    .institutional-panel p{font-size:15px;line-height:1.45;color:#2d3d52;font-weight:760;margin:0 0 10px}.institutional-panel p:last-child{margin-bottom:0}
+    .metric-board{display:grid;grid-template-columns:1fr;gap:10px}
+    .metric-row{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;border:1px solid rgba(7,31,58,.12);border-radius:16px;background:linear-gradient(135deg,#fff 0%,rgba(234,246,245,.55) 100%);padding:14px 16px}
+    .metric-row strong{font-size:34px;line-height:.9;color:#087a78;letter-spacing:-.045em;font-weight:950}.metric-row h3{margin:0 0 3px;font-size:14px;color:#071f3a}.metric-row p{margin:0;font-size:12px;line-height:1.32;color:#526178;font-weight:750}
+    .problem-flow{margin-top:20px;border:1px solid rgba(7,31,58,.14);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 14px 28px rgba(7,31,58,.04)}
+    .flow-row{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:center;padding:15px 20px;border-bottom:1px solid rgba(7,31,58,.10)}
+    .flow-row:last-child{border-bottom:0}.flow-row span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#087a78;font-weight:950}.flow-row h3{margin:0 0 3px;font-size:17px;color:#071f3a}.flow-row p{margin:0;font-size:13.5px;line-height:1.36;color:#43546b;font-weight:760}
+    .problem-card-institutional .problem-takeaway{margin-top:18px;background:linear-gradient(135deg,rgba(7,31,58,.96),rgba(8,122,120,.92));color:#fff;border:0;border-left:0;padding:18px 22px;border-radius:16px;box-shadow:0 16px 30px rgba(7,31,58,.15)}
+    .problem-card-institutional .problem-takeaway strong{color:#fff}.source-note{font-size:10px;line-height:1.35;color:#66758a;font-weight:700;margin:9px 0 0}
+    .problem-card-institutional .problem-hero,.institutional-layout,.problem-flow,.problem-card-institutional .problem-takeaway,.problem-card-institutional .nav{opacity:0;transform:translateY(14px);animation:instLift .5s ease forwards}.problem-card-institutional .problem-hero{animation-delay:.04s}.institutional-layout{animation-delay:.16s}.problem-flow{animation-delay:.30s}.problem-card-institutional .problem-takeaway{animation-delay:.42s}.problem-card-institutional .nav{animation-delay:.54s}.metric-row{opacity:0;transform:translateX(12px);animation:metricIn .46s ease forwards}.metric-row:nth-child(1){animation-delay:.26s}.metric-row:nth-child(2){animation-delay:.36s}.metric-row:nth-child(3){animation-delay:.46s}
+    @keyframes instLift{to{opacity:1;transform:translateY(0)}}@keyframes metricIn{to{opacity:1;transform:translateX(0)}}
+    @media(max-width:880px){.problem-card-institutional{padding:30px 22px!important}.institutional-layout{grid-template-columns:1fr}.metric-row{grid-template-columns:78px 1fr}.problem-card-institutional .problem-hero h1{font-size:40px}.problem-card-institutional .problem-hero,.institutional-layout,.problem-flow,.problem-card-institutional .problem-takeaway,.problem-card-institutional .nav,.metric-row{animation:none;opacity:1;transform:none}}
   </style>
 </head>
 <body>
   <main class="page problem-page">
-    <section class="shell card problem-card problem-card-refresh">
+    <section class="shell card problem-card problem-card-institutional">
       <div class="problem-hero">
         <div class="eyebrow">02 / The problem</div>
         <h1>Mortgage-capable buyers are locked out by a moving deposit target.</h1>
         <p class="lead">The issue is not always affordability. Many buyers can support a mainstream senior mortgage, but cannot accumulate the deposit, transaction costs and settlement capital quickly enough.</p>
       </div>
 
-      <div class="problem-statement problem-statement-refresh">
-        <div class="statement-label">Core problem</div>
-        <p>A large segment of Australian buyers remains outside ownership despite being capable of servicing a senior mortgage. The binding constraint is often upfront capital, not weak credit.</p>
-        <p>The problem compounds because the target can keep moving while the buyer saves: rent continues, property prices in major capital cities may rise faster than deposit formation, transaction costs remain payable and suitable property choice can narrow.</p>
+      <div class="institutional-layout">
+        <div class="institutional-panel">
+          <div class="panel-label">Core problem</div>
+          <p>A large segment of Australian buyers remains outside ownership despite being capable of servicing a senior mortgage. The binding constraint is often upfront capital, not weak credit.</p>
+          <p>The problem compounds because the target can keep moving while the buyer saves: rent continues, property prices in major capital cities may rise faster than deposit formation, transaction costs remain payable and suitable property choice can narrow.</p>
+        </div>
+
+        <div>
+          <div class="metric-board">
+            <article class="metric-row">
+              <strong>560%</strong>
+              <div><h3>Capital-city home values</h3><p>Average capital-city house value increase since 2000.</p></div>
+            </article>
+            <article class="metric-row">
+              <strong>15%</strong>
+              <div><h3>Affordability pressure</h3><p>Share of homes a typical household can afford.</p></div>
+            </article>
+            <article class="metric-row">
+              <strong>5+ yrs</strong>
+              <div><h3>Deposit formation delay</h3><p>Average time to save a 20% deposit.</p></div>
+            </article>
+          </div>
+          <p class="source-note">Source: BuySooner roadmap prototype research pack.</p>
+        </div>
       </div>
 
-      <div class="evidence-strip">
-        <article class="evidence-card">
-          <h3>Home values surged</h3>
-          <strong>560%</strong>
-          <p>Average capital-city house value increase since 2000.</p>
-        </article>
-        <article class="evidence-card">
-          <h3>Homes are less affordable</h3>
-          <strong>15%</strong>
-          <p>Share of homes a typical household can afford.</p>
-        </article>
-        <article class="evidence-card">
-          <h3>Deposits still take years</h3>
-          <strong>5+ years</strong>
-          <p>Average time to save a 20% deposit.</p>
-        </article>
-      </div>
-      <p class="source-note">Source: BuySooner roadmap prototype research pack.</p>
-
-      <div class="problem-chain">
-        <article class="chain-row">
+      <div class="problem-flow">
+        <article class="flow-row">
           <span>01</span>
-          <div><h3>Mortgage capable</h3><p>Buyer can support a mainstream senior mortgage subject to lender assessment.</p></div>
+          <div><h3>Mortgage capable</h3><p>Buyer can support a mainstream senior mortgage, subject to lender assessment.</p></div>
         </article>
-        <div class="chain-arrow">then</div>
-        <article class="chain-row">
+        <article class="flow-row">
           <span>02</span>
           <div><h3>Capital shortfall</h3><p>Buyer cannot complete the deposit, costs and settlement capital quickly enough.</p></div>
         </article>
-        <div class="chain-arrow">then</div>
-        <article class="chain-row">
+        <article class="flow-row">
           <span>03</span>
           <div><h3>Moving target</h3><p>While the buyer saves, rent continues and property prices may move faster than deposit formation.</p></div>
         </article>
