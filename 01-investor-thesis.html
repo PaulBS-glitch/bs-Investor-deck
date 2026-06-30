@@ -5,43 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>02 The Problem</title>
   <link rel="stylesheet" href="investor.css">
+  <style>
+    .problem-card-refresh{max-width:1120px}
+    .problem-card-refresh .problem-hero h1{font-size:clamp(48px,6.1vw,76px);line-height:.91;letter-spacing:-.065em;max-width:980px;margin-bottom:18px}
+    .problem-card-refresh .lead{max-width:980px;font-size:clamp(18px,2vw,24px);line-height:1.45}
+    .problem-statement.problem-statement-refresh{padding:24px 26px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(234,246,245,.70));border:1px solid rgba(8,122,120,.18);box-shadow:0 16px 30px rgba(7,31,58,.05)}
+    .problem-statement-refresh .statement-label,.evidence-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
+    .problem-statement-refresh p{margin:0 0 10px}.problem-statement-refresh p:last-child{margin-bottom:0}
+    .evidence-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .evidence-card{border:1px solid rgba(8,122,120,.18);border-radius:18px;padding:18px 20px;background:#fff;box-shadow:0 12px 24px rgba(7,31,58,.045)}
+    .evidence-card strong{display:block;font-size:clamp(32px,4vw,48px);line-height:.95;color:#087a78;letter-spacing:-.045em;margin-bottom:6px}
+    .evidence-card h3{margin:0 0 6px;font-size:15px;color:#071f3a}.evidence-card p{margin:0;color:#43546b;font-size:13px;line-height:1.35;font-weight:700}
+    .problem-chain{display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px}
+    .chain-row{display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:center;border:1px solid rgba(8,122,120,.20);border-radius:18px;background:#fff;padding:18px 22px;box-shadow:0 10px 20px rgba(7,31,58,.04);position:relative;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .chain-row:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.36)}
+    .chain-row span{height:48px;width:48px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-weight:950;letter-spacing:.04em}
+    .chain-row h3{margin:0 0 5px;font-size:20px;color:#071f3a}.chain-row p{margin:0;color:#43546b;font-size:15px;line-height:1.38;font-weight:750}
+    .chain-arrow{display:flex;align-items:center;gap:12px;margin:0 0 0 24px;color:#087a78;font-weight:950;font-size:15px}.chain-arrow:before{content:"";height:18px;width:2px;background:#087a78;border-radius:4px;opacity:.55}.chain-arrow:after{content:"↓";line-height:1}
+    .source-note{font-size:10px;line-height:1.35;color:#66758a;font-weight:700;margin:8px 0 0}
+    .problem-card-refresh .problem-hero,.problem-card-refresh .problem-statement-refresh,.problem-card-refresh .evidence-strip,.problem-card-refresh .problem-chain,.problem-card-refresh .problem-takeaway,.problem-card-refresh .nav{opacity:0;transform:translateY(18px);animation:problemLift .56s ease forwards}
+    .problem-card-refresh .problem-hero{animation-delay:.05s}.problem-card-refresh .problem-statement-refresh{animation-delay:.18s}.problem-card-refresh .evidence-strip{animation-delay:.31s}.problem-card-refresh .problem-chain{animation-delay:.44s}.problem-card-refresh .problem-takeaway{animation-delay:.58s}.problem-card-refresh .nav{animation-delay:.70s}
+    .evidence-card{opacity:0;transform:translateY(12px);animation:problemLift .5s ease forwards}.evidence-card:nth-child(1){animation-delay:.38s}.evidence-card:nth-child(2){animation-delay:.48s}.evidence-card:nth-child(3){animation-delay:.58s}
+    .chain-row{opacity:0;transform:translateX(-16px);animation:chainIn .5s ease forwards}.chain-row:nth-of-type(1){animation-delay:.54s}.chain-row:nth-of-type(3){animation-delay:.66s}.chain-row:nth-of-type(5){animation-delay:.78s}
+    @keyframes problemLift{to{opacity:1;transform:translateY(0)}}@keyframes chainIn{to{opacity:1;transform:translateX(0)}}
+    @media(max-width:840px){.evidence-strip{grid-template-columns:1fr}.chain-row{grid-template-columns:52px 1fr;padding:16px}.problem-card-refresh .problem-hero h1{font-size:44px}.problem-card-refresh .problem-hero,.problem-card-refresh .problem-statement-refresh,.problem-card-refresh .evidence-strip,.problem-card-refresh .problem-chain,.problem-card-refresh .problem-takeaway,.problem-card-refresh .nav,.evidence-card,.chain-row{animation:none;opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <main class="page problem-page">
-    <section class="shell card problem-card problem-card-simple">
-      <div class="problem-hero reveal reveal-1">
+    <section class="shell card problem-card problem-card-refresh">
+      <div class="problem-hero">
         <div class="eyebrow">02 / The problem</div>
-        <h1>Mortgage-capable buyers are locked out by the deposit gap.</h1>
-        <p class="lead">The problem is not always affordability. In many cases, the buyer can support a mainstream senior mortgage but cannot accumulate the deposit and transaction capital quickly enough.</p>
+        <h1>Mortgage-capable buyers are locked out by a moving deposit target.</h1>
+        <p class="lead">The issue is not always affordability. Many buyers can support a mainstream senior mortgage, but cannot accumulate the deposit, transaction costs and settlement capital quickly enough.</p>
       </div>
 
-      <div class="problem-statement reveal reveal-2">
-        <p>A large segment of Australian buyers remain outside ownership while they continue paying rent, remain exposed to property-price movement and risk losing access to suitable properties. BuySooner targets this timing gap: serviceable borrowers delayed by deposit formation, not weak-credit customers requiring affordability repair.</p>
+      <div class="problem-statement problem-statement-refresh">
+        <div class="statement-label">Core problem</div>
+        <p>A large segment of Australian buyers remains outside ownership despite being capable of servicing a senior mortgage. The binding constraint is often upfront capital, not weak credit.</p>
+        <p>The problem compounds because the target can keep moving while the buyer saves: rent continues, property prices in major capital cities may rise faster than deposit formation, transaction costs remain payable and suitable property choice can narrow.</p>
       </div>
 
-      <div class="problem-grid problem-grid-simple reveal reveal-3">
-        <article class="problem-tile">
+      <div class="evidence-strip">
+        <article class="evidence-card">
+          <h3>Home values surged</h3>
+          <strong>560%</strong>
+          <p>Average capital-city house value increase since 2000.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Homes are less affordable</h3>
+          <strong>15%</strong>
+          <p>Share of homes a typical household can afford.</p>
+        </article>
+        <article class="evidence-card">
+          <h3>Deposits still take years</h3>
+          <strong>5+ years</strong>
+          <p>Average time to save a 20% deposit.</p>
+        </article>
+      </div>
+      <p class="source-note">Source: BuySooner roadmap prototype research pack.</p>
+
+      <div class="problem-chain">
+        <article class="chain-row">
           <span>01</span>
-          <h3>Price movement while saving</h3>
-          <p>Buyers saving for a deposit remain exposed to property-price movement before they can enter the market.</p>
+          <div><h3>Mortgage capable</h3><p>Buyer can support a mainstream senior mortgage subject to lender assessment.</p></div>
         </article>
-        <article class="problem-tile">
+        <div class="chain-arrow">then</div>
+        <article class="chain-row">
           <span>02</span>
-          <h3>Rent leakage</h3>
-          <p>Rent reduces the borrower’s ability to build deposit equity while they remain outside ownership.</p>
+          <div><h3>Capital shortfall</h3><p>Buyer cannot complete the deposit, costs and settlement capital quickly enough.</p></div>
         </article>
-        <article class="problem-tile">
+        <div class="chain-arrow">then</div>
+        <article class="chain-row">
           <span>03</span>
-          <h3>Deposit formation delay</h3>
-          <p>For otherwise mortgage-capable buyers, the deposit timeline becomes the binding constraint.</p>
+          <div><h3>Moving target</h3><p>While the buyer saves, rent continues and property prices may move faster than deposit formation.</p></div>
         </article>
       </div>
 
-      <div class="callout problem-takeaway reveal reveal-4">
-        <strong>Institutional takeaway:</strong> the target segment is mortgage-capable but deposit-constrained, creating a contribution-layer opportunity rather than a weak-credit lending proposition.
+      <div class="callout problem-takeaway">
+        <strong>Institutional takeaway:</strong> BuySooner targets mortgage-capable, deposit-constrained buyers. The opportunity is contribution-layer finance, not weak-credit lending.
       </div>
 
-      <div class="nav reveal reveal-5">
+      <div class="nav">
         <a class="secondary" href="00-title.html">Back</a>
         <a href="02-market-problem.html">Next</a>
       </div>
