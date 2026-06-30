@@ -5,53 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>03 Market Failure</title>
   <link rel="stylesheet" href="investor.css">
+  <style>
+    .failure-card-refresh{max-width:1100px;padding:46px 52px 34px!important}
+    .failure-card-refresh .failure-hero{margin-bottom:24px;border-bottom:1px solid rgba(7,31,58,.14);padding-bottom:22px}
+    .failure-card-refresh .failure-hero h1{font-size:clamp(42px,5.2vw,66px);line-height:.95;letter-spacing:-.058em;max-width:1020px;margin:8px 0 15px;color:#071f3a}
+    .failure-card-refresh .lead{font-size:clamp(17px,1.8vw,22px);line-height:1.44;max-width:990px;color:#2d3d52;font-weight:820}
+    .market-gap{border:1px solid rgba(7,31,58,.14);border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(234,246,245,.68));padding:22px 24px;margin-bottom:22px;box-shadow:0 14px 28px rgba(7,31,58,.045)}
+    .market-gap-label,.failure-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
+    .market-gap p{margin:0;font-size:16px;line-height:1.48;color:#2d3d52;font-weight:760;max-width:960px}
+    .failure-options-refresh{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px}
+    .failure-option-refresh{border:1px solid rgba(7,31,58,.14);border-radius:18px;background:#fff;padding:20px 22px;box-shadow:0 12px 24px rgba(7,31,58,.04);min-height:176px;display:flex;flex-direction:column;gap:8px}
+    .failure-topline{display:flex;align-items:center;gap:12px;margin-bottom:2px}.failure-number-refresh{height:34px;width:34px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-size:12px;font-weight:950;letter-spacing:.04em}.failure-option-refresh h3{margin:0;color:#071f3a;font-size:20px;line-height:1.1}.failure-option-refresh p{margin:0;color:#43546b;font-size:14px;line-height:1.42;font-weight:750}.failure-limit-refresh{margin-top:auto;border-top:1px solid rgba(7,31,58,.12);padding-top:10px;color:#087a78;font-weight:900;font-size:12.5px;line-height:1.34}
+    .failure-card-refresh .failure-takeaway{margin-top:16px;background:linear-gradient(135deg,rgba(7,31,58,.97),rgba(8,122,120,.92));color:#fff;border:0;border-left:0;padding:18px 22px;border-radius:16px;box-shadow:0 16px 30px rgba(7,31,58,.15)}.failure-card-refresh .failure-takeaway strong{color:#fff}
+    .failure-card-refresh .failure-hero,.market-gap,.failure-option-refresh,.failure-card-refresh .failure-takeaway,.failure-card-refresh .nav{opacity:0;transform:translateY(18px);animation:failureLift .68s cubic-bezier(.2,.7,.2,1) forwards}.failure-card-refresh .failure-hero{animation-delay:.05s}.market-gap{animation-delay:.22s}.failure-option-refresh:nth-child(1){animation-delay:.40s}.failure-option-refresh:nth-child(2){animation-delay:.55s}.failure-option-refresh:nth-child(3){animation-delay:.70s}.failure-option-refresh:nth-child(4){animation-delay:.85s}.failure-card-refresh .failure-takeaway{animation-delay:1.05s}.failure-card-refresh .nav{animation-delay:1.20s}
+    .failure-option-refresh{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.failure-option-refresh:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.34)}
+    @keyframes failureLift{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:860px){.failure-card-refresh{padding:30px 22px!important}.failure-options-refresh{grid-template-columns:1fr}.failure-card-refresh .failure-hero h1{font-size:40px}.failure-card-refresh .failure-hero,.market-gap,.failure-option-refresh,.failure-card-refresh .failure-takeaway,.failure-card-refresh .nav{animation:none;opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <main class="page failure-page">
-    <section class="shell card failure-card">
-      <div class="failure-hero reveal reveal-1">
+    <section class="shell card failure-card failure-card-refresh">
+      <div class="failure-hero">
         <div class="eyebrow">03 / Market failure</div>
-        <h1>Waiting, LMI and family support do not solve the deposit gap properly.</h1>
-        <p class="lead">Existing pathways either delay ownership, increase leverage, depend on unequal family support, or force poor property compromise.</p>
+        <h1>Existing pathways do not turn deposit-constrained demand into controlled transactions.</h1>
+        <p class="lead">Waiting, high-LVR lending, family assistance and property compromise may help some buyers, but they do not create a structured contribution-layer solution that preserves senior-lender underwriting.</p>
       </div>
 
-      <div class="failure-statement reveal reveal-2">
-        <p>The deposit gap is usually treated as a personal savings problem. In practice, the available alternatives are inefficient, uneven or structurally limited. That creates room for a governed contribution-layer solution that sits beside, rather than replaces, senior-lender underwriting.</p>
+      <div class="market-gap">
+        <div class="market-gap-label">Market gap</div>
+        <p>Brokers already see customers who can support a mainstream home loan but cannot bridge the deposit gap quickly enough. The usual result is a delayed transaction, a lost deal or a customer who walks away.</p>
       </div>
 
-      <div class="failure-grid reveal reveal-3">
-        <article class="failure-option">
-          <div class="failure-number">01</div>
-          <h3>Waiting</h3>
-          <p>Continuing to save can extend rent leakage and leave the buyer exposed to further price movement before they can transact.</p>
-          <div class="failure-limit">Delays ownership rather than solving the capital stack.</div>
+      <div class="failure-options-refresh">
+        <article class="failure-option-refresh">
+          <div class="failure-topline"><div class="failure-number-refresh">01</div><h3>Waiting</h3></div>
+          <p>The buyer keeps paying rent while trying to save into a moving property market.</p>
+          <div class="failure-limit-refresh">Failure point: delays the transaction rather than solving the capital stack.</div>
         </article>
-        <article class="failure-option">
-          <div class="failure-number">02</div>
-          <h3>High-LVR / LMI pathway</h3>
-          <p>LMI may help some buyers transact, but it increases debt burden, adds cost and remains dependent on senior-lender appetite.</p>
-          <div class="failure-limit">Uses more leverage, not a distinct contribution layer.</div>
+        <article class="failure-option-refresh">
+          <div class="failure-topline"><div class="failure-number-refresh">02</div><h3>High-LVR / LMI</h3></div>
+          <p>More leverage may help some buyers transact, but it adds cost, increases borrower leverage and remains subject to lender appetite.</p>
+          <div class="failure-limit-refresh">Failure point: uses more senior debt, not a separate contribution layer.</div>
         </article>
-        <article class="failure-option">
-          <div class="failure-number">03</div>
-          <h3>Family support</h3>
-          <p>Parental assistance is uneven, informal and not scalable. It helps some buyers but does not create a market-wide solution.</p>
-          <div class="failure-limit">Access depends on household wealth, not borrower quality.</div>
+        <article class="failure-option-refresh">
+          <div class="failure-topline"><div class="failure-number-refresh">03</div><h3>Family support</h3></div>
+          <p>Parental assistance can solve the gap for some buyers, but it is uneven, informal and not available to all otherwise suitable borrowers.</p>
+          <div class="failure-limit-refresh">Failure point: access depends on family wealth, not borrower quality.</div>
         </article>
-        <article class="failure-option">
-          <div class="failure-number">04</div>
-          <h3>Buying down / compromising</h3>
-          <p>Buying a cheaper or less suitable property may solve the deposit issue but can force poor property selection or unsuitable housing outcomes.</p>
-          <div class="failure-limit">May weaken asset quality and customer fit.</div>
+        <article class="failure-option-refresh">
+          <div class="failure-topline"><div class="failure-number-refresh">04</div><h3>Buying down / compromising</h3></div>
+          <p>A cheaper or less suitable property may reduce the deposit hurdle, but it can force poor asset selection or customer-fit compromise.</p>
+          <div class="failure-limit-refresh">Failure point: may solve deposit maths while weakening property quality.</div>
         </article>
       </div>
 
-      <div class="callout failure-takeaway reveal reveal-4">
-        <strong>Institutional takeaway:</strong> the market needs a structured, governed contribution-layer solution that allows eligible buyers to transact earlier without replacing senior-lender underwriting.
+      <div class="callout failure-takeaway">
+        <strong>Institutional takeaway:</strong> the market failure is unconverted, mortgage-capable demand. BuySooner converts that demand into governed contribution-layer transactions while preserving senior-lender underwriting.
       </div>
 
-      <div class="nav reveal reveal-5">
-        <a class="secondary" href="01-investor-thesis.html">Back</a>
+      <div class="nav">
+        <a class="secondary" href="01-investor-thesis.html?v=bottom-proof">Back</a>
         <a href="03-existing-options.html">Next</a>
       </div>
     </section>
