@@ -5,37 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BuySooner Institutional Investor Presentation</title>
   <link rel="stylesheet" href="investor.css">
+  <style>
+    .title-meta-row{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:8px}
+    .title-date{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:#087a78;white-space:nowrap}
+    .title-page-clean .title-copy,.title-page-clean .title-statement,.title-page-clean .title-logic,.title-page-clean .title-footer,.title-page-clean .nav{opacity:0;transform:translateY(16px);animation:titleLift .58s ease forwards}
+    .title-page-clean .title-copy{animation-delay:.05s}
+    .title-page-clean .title-statement{animation-delay:.18s}
+    .title-page-clean .title-logic{animation-delay:.31s}
+    .title-page-clean .title-footer{animation-delay:.44s}
+    .title-page-clean .nav{animation-delay:.57s}
+    .title-statement{position:relative;overflow:hidden}
+    .title-statement:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.46) 42%,transparent 72%);transform:translateX(-120%);animation:titleSweep 1.15s ease .78s forwards;pointer-events:none}
+    .logic-row{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .logic-row:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(7,31,58,.08);border-color:rgba(8,122,120,.34)}
+    @keyframes titleLift{to{opacity:1;transform:translateY(0)}}
+    @keyframes titleSweep{to{transform:translateX(120%)}}
+    @media(max-width:760px){.title-meta-row{display:block}.title-date{margin-top:8px}.title-page-clean .title-copy,.title-page-clean .title-statement,.title-page-clean .title-logic,.title-page-clean .title-footer,.title-page-clean .nav{animation:none;opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <main class="page title-page title-page-clean">
     <section class="shell card title-card title-card-clean">
-      <div class="title-copy reveal reveal-1">
-        <div class="eyebrow">Confidential investor discussion material</div>
+      <div class="title-copy">
+        <div class="title-meta-row">
+          <div class="eyebrow">Confidential investor discussion material</div>
+          <div class="title-date" data-dynamic-date>June 2026</div>
+        </div>
         <h1>BuySooner<br><span>Institutional Investor Presentation</span></h1>
         <p class="lead">Residential contribution-layer finance for deposit-constrained, mortgage-capable Australian home buyers.</p>
       </div>
 
-      <div class="title-statement reveal reveal-2">
+      <div class="title-statement">
         <div class="statement-label">Opening proposition</div>
-        <p>BuySooner was formed to solve a structural deposit-gap problem for mortgage-capable Australian home buyers. The platform contributes a defined settlement layer alongside customer equity and a senior mortgage, helping eligible customers buy earlier while creating controlled contribution-layer exposure for institutional capital.</p>
+        <p>BuySooner addresses a structural deposit-gap problem for mortgage-capable Australian home buyers.</p>
+        <p>The platform provides a defined contribution layer alongside customer equity and a senior mortgage, helping eligible customers buy earlier while creating governed contribution-layer exposure for institutional capital.</p>
       </div>
 
-      <div class="title-logic reveal reveal-3">
+      <div class="title-logic">
         <div class="logic-row"><span>01</span><div><h3>Investment context</h3><p>BuySooner addresses a structural deposit-gap problem affecting mortgage-capable Australian home buyers.</p></div></div>
         <div class="logic-row"><span>02</span><div><h3>Product position</h3><p>The platform provides a defined contribution layer at settlement alongside customer equity and a senior mortgage.</p></div></div>
         <div class="logic-row"><span>03</span><div><h3>Investor frame</h3><p>The opportunity is assessed as governed contribution-layer exposure, supported by credit policy, refinance discipline and downside controls.</p></div></div>
       </div>
 
-      <div class="title-footer reveal reveal-4">
-        <p>Proposed capital facility | Residential contribution positions | Australia</p>
-        <p>Draft | Confidential | For discussion purposes only</p>
+      <div class="title-footer">
+        <p>Confidential investor discussion material | Contribution-layer residential finance | Australia | <span data-dynamic-date>June 2026</span></p>
       </div>
 
-      <div class="nav reveal reveal-5">
-        <a class="secondary" href="index.html">Deck menu</a>
+      <div class="nav">
+        <a class="secondary" href="roadmap.html">Open prototype roadmap</a>
         <a href="01-investor-thesis.html">Begin presentation</a>
       </div>
     </section>
   </main>
+  <script>
+    (function(){
+      var monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var now=new Date();
+      var label=monthNames[now.getMonth()]+' '+now.getFullYear();
+      document.querySelectorAll('[data-dynamic-date]').forEach(function(el){el.textContent=label;});
+    })();
+  </script>
 </body>
 </html>
