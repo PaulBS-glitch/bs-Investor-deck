@@ -6,57 +6,63 @@
   <title>03 Market Failure</title>
   <link rel="stylesheet" href="investor.css">
   <style>
-    .failure-card-refresh{max-width:1100px;padding:46px 52px 34px!important}
-    .failure-card-refresh .failure-hero{margin-bottom:24px;border-bottom:1px solid rgba(7,31,58,.14);padding-bottom:22px}
-    .failure-card-refresh .failure-hero h1{font-size:clamp(42px,5.2vw,66px);line-height:.95;letter-spacing:-.058em;max-width:1020px;margin:8px 0 15px;color:#071f3a}
-    .failure-card-refresh .lead{font-size:clamp(17px,1.8vw,22px);line-height:1.44;max-width:990px;color:#2d3d52;font-weight:820}
-    .market-gap{border:1px solid rgba(7,31,58,.14);border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(234,246,245,.68));padding:22px 24px;margin-bottom:22px;box-shadow:0 14px 28px rgba(7,31,58,.045)}
-    .market-gap-label,.failure-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
-    .market-gap p{margin:0;font-size:16px;line-height:1.48;color:#2d3d52;font-weight:760;max-width:960px}
-    .failure-options-refresh{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px}
-    .failure-option-refresh{border:1px solid rgba(7,31,58,.14);border-radius:18px;background:#fff;padding:20px 22px;box-shadow:0 12px 24px rgba(7,31,58,.04);min-height:176px;display:flex;flex-direction:column;gap:8px}
-    .failure-topline{display:flex;align-items:center;gap:12px;margin-bottom:2px}.failure-number-refresh{height:34px;width:34px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-size:12px;font-weight:950;letter-spacing:.04em}.failure-option-refresh h3{margin:0;color:#071f3a;font-size:20px;line-height:1.1}.failure-option-refresh p{margin:0;color:#43546b;font-size:14px;line-height:1.42;font-weight:750}.failure-limit-refresh{margin-top:auto;border-top:1px solid rgba(7,31,58,.12);padding-top:10px;color:#087a78;font-weight:900;font-size:12.5px;line-height:1.34}
-    .failure-card-refresh .failure-takeaway{margin-top:16px;background:linear-gradient(135deg,rgba(7,31,58,.97),rgba(8,122,120,.92));color:#fff;border:0;border-left:0;padding:18px 22px;border-radius:16px;box-shadow:0 16px 30px rgba(7,31,58,.15)}.failure-card-refresh .failure-takeaway strong{color:#fff}
-    .failure-card-refresh .failure-hero,.market-gap,.failure-option-refresh,.failure-card-refresh .failure-takeaway,.failure-card-refresh .nav{opacity:0;transform:translateY(18px);animation:failureLift .68s cubic-bezier(.2,.7,.2,1) forwards}.failure-card-refresh .failure-hero{animation-delay:.05s}.market-gap{animation-delay:.22s}.failure-option-refresh:nth-child(1){animation-delay:.40s}.failure-option-refresh:nth-child(2){animation-delay:.55s}.failure-option-refresh:nth-child(3){animation-delay:.70s}.failure-option-refresh:nth-child(4){animation-delay:.85s}.failure-card-refresh .failure-takeaway{animation-delay:1.05s}.failure-card-refresh .nav{animation-delay:1.20s}
-    .failure-option-refresh{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.failure-option-refresh:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.34)}
-    @keyframes failureLift{to{opacity:1;transform:translateY(0)}}
-    @media(max-width:860px){.failure-card-refresh{padding:30px 22px!important}.failure-options-refresh{grid-template-columns:1fr}.failure-card-refresh .failure-hero h1{font-size:40px}.failure-card-refresh .failure-hero,.market-gap,.failure-option-refresh,.failure-card-refresh .failure-takeaway,.failure-card-refresh .nav{animation:none;opacity:1;transform:none}}
+    .failure-card-wide{max-width:1120px;padding:48px 54px 34px!important}
+    .failure-card-wide .failure-hero{margin-bottom:26px;border-bottom:1px solid rgba(7,31,58,.14);padding-bottom:24px}
+    .failure-card-wide .failure-hero h1{font-size:clamp(44px,5.6vw,72px);line-height:.94;letter-spacing:-.06em;max-width:1050px;margin:8px 0 16px;color:#071f3a}
+    .failure-card-wide .lead{font-size:clamp(18px,1.9vw,23px);line-height:1.44;max-width:1020px;color:#2d3d52;font-weight:820}
+    .market-gap-wide{border-top:1px solid rgba(7,31,58,.14);border-bottom:1px solid rgba(7,31,58,.14);padding:22px 0;margin-bottom:24px}
+    .market-gap-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
+    .market-gap-wide p{margin:0;font-size:16.5px;line-height:1.5;color:#2d3d52;font-weight:760;max-width:1020px}
+    .failure-stack{display:grid;grid-template-columns:1fr;gap:13px;margin-bottom:22px}
+    .failure-row-wide{display:grid;grid-template-columns:76px minmax(190px,260px) 1fr;gap:20px;align-items:center;border:1px solid rgba(7,31,58,.14);border-radius:18px;background:#fff;padding:20px 24px;box-shadow:0 12px 24px rgba(7,31,58,.04)}
+    .failure-row-wide .num{height:42px;width:42px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-size:12px;font-weight:950;letter-spacing:.04em}
+    .failure-row-wide h3{margin:0;color:#071f3a;font-size:22px;line-height:1.1}.failure-row-wide p{margin:0;color:#43546b;font-size:14.5px;line-height:1.42;font-weight:750}.failure-row-wide .limit{border-left:3px solid #087a78;padding-left:16px;color:#087a78;font-weight:900;font-size:13px;line-height:1.36}
+    .failure-card-wide .failure-takeaway{margin-top:16px;background:linear-gradient(135deg,rgba(7,31,58,.97),rgba(8,122,120,.92));color:#fff;border:0;border-left:0;padding:18px 22px;border-radius:16px;box-shadow:0 16px 30px rgba(7,31,58,.15)}.failure-card-wide .failure-takeaway strong{color:#fff}
+    .failure-card-wide .failure-hero,.market-gap-wide,.failure-row-wide,.failure-card-wide .failure-takeaway,.failure-card-wide .nav{opacity:0;transform:translateY(24px);animation:wideLift .85s cubic-bezier(.16,.78,.2,1) forwards}
+    .failure-card-wide .failure-hero{animation-delay:.08s}.market-gap-wide{animation-delay:.32s}.failure-row-wide:nth-child(1){animation-delay:.58s}.failure-row-wide:nth-child(2){animation-delay:.82s}.failure-row-wide:nth-child(3){animation-delay:1.06s}.failure-row-wide:nth-child(4){animation-delay:1.30s}.failure-card-wide .failure-takeaway{animation-delay:1.58s}.failure-card-wide .nav{animation-delay:1.78s}
+    .failure-row-wide{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.failure-row-wide:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.34)}
+    @keyframes wideLift{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){.failure-card-wide{padding:30px 22px!important}.failure-card-wide .failure-hero h1{font-size:40px}.failure-row-wide{grid-template-columns:52px 1fr;gap:14px}.failure-row-wide .limit{grid-column:2;border-left:0;border-top:1px solid rgba(7,31,58,.12);padding:10px 0 0}.failure-card-wide .failure-hero,.market-gap-wide,.failure-row-wide,.failure-card-wide .failure-takeaway,.failure-card-wide .nav{animation:none;opacity:1;transform:none}}
   </style>
 </head>
 <body>
   <main class="page failure-page">
-    <section class="shell card failure-card failure-card-refresh">
+    <section class="shell card failure-card failure-card-wide">
       <div class="failure-hero">
         <div class="eyebrow">03 / Market failure</div>
         <h1>Existing pathways do not turn deposit-constrained demand into controlled transactions.</h1>
         <p class="lead">Waiting, high-LVR lending, family assistance and property compromise may help some buyers, but they do not create a structured contribution-layer solution that preserves senior-lender underwriting.</p>
       </div>
 
-      <div class="market-gap">
+      <div class="market-gap-wide">
         <div class="market-gap-label">Market gap</div>
         <p>Brokers already see customers who can support a mainstream home loan but cannot bridge the deposit gap quickly enough. The usual result is a delayed transaction, a lost deal or a customer who walks away.</p>
       </div>
 
-      <div class="failure-options-refresh">
-        <article class="failure-option-refresh">
-          <div class="failure-topline"><div class="failure-number-refresh">01</div><h3>Waiting</h3></div>
+      <div class="failure-stack">
+        <article class="failure-row-wide">
+          <div class="num">01</div>
+          <h3>Waiting</h3>
           <p>The buyer keeps paying rent while trying to save into a moving property market.</p>
-          <div class="failure-limit-refresh">Failure point: delays the transaction rather than solving the capital stack.</div>
+          <div class="limit">Failure point: delays the transaction rather than solving the capital stack.</div>
         </article>
-        <article class="failure-option-refresh">
-          <div class="failure-topline"><div class="failure-number-refresh">02</div><h3>High-LVR / LMI</h3></div>
+        <article class="failure-row-wide">
+          <div class="num">02</div>
+          <h3>High-LVR / LMI</h3>
           <p>More leverage may help some buyers transact, but it adds cost, increases borrower leverage and remains subject to lender appetite.</p>
-          <div class="failure-limit-refresh">Failure point: uses more senior debt, not a separate contribution layer.</div>
+          <div class="limit">Failure point: uses more senior debt, not a separate contribution layer.</div>
         </article>
-        <article class="failure-option-refresh">
-          <div class="failure-topline"><div class="failure-number-refresh">03</div><h3>Family support</h3></div>
+        <article class="failure-row-wide">
+          <div class="num">03</div>
+          <h3>Family support</h3>
           <p>Parental assistance can solve the gap for some buyers, but it is uneven, informal and not available to all otherwise suitable borrowers.</p>
-          <div class="failure-limit-refresh">Failure point: access depends on family wealth, not borrower quality.</div>
+          <div class="limit">Failure point: access depends on family wealth, not borrower quality.</div>
         </article>
-        <article class="failure-option-refresh">
-          <div class="failure-topline"><div class="failure-number-refresh">04</div><h3>Buying down / compromising</h3></div>
+        <article class="failure-row-wide">
+          <div class="num">04</div>
+          <h3>Buying down / compromising</h3>
           <p>A cheaper or less suitable property may reduce the deposit hurdle, but it can force poor asset selection or customer-fit compromise.</p>
-          <div class="failure-limit-refresh">Failure point: may solve deposit maths while weakening property quality.</div>
+          <div class="limit">Failure point: may solve deposit maths while weakening property quality.</div>
         </article>
       </div>
 
