@@ -54,7 +54,8 @@
     var location=buildLocation(p);
     var intro=root.querySelector('.rm-intro-lede');
     if(intro){
-      intro.innerHTML='This tailored plan shows how you can move from the property chase into your own home '+location.preposition+' <strong>'+esc(location.text)+'</strong>.';
+      var locationLine=location.text?'<span class="rm-page1-location">'+esc(location.text)+'</span>':'';
+      intro.innerHTML='This tailored plan shows how you can move from the property chase into your own home.'+locationLine;
     }
 
     var pathwayLines=[
@@ -78,7 +79,7 @@
     if(!document.getElementById(styleId)){
       var s=document.createElement('style');
       s.id=styleId;
-      s.textContent='.rm-hero h1{margin-bottom:10px!important}.rm-hero>div{max-width:820px!important;padding-right:72px!important}.rm-page1-subheader{margin:0 0 10px!important;color:#071f3a!important;font-size:25px!important;line-height:1.2!important;font-weight:900!important;letter-spacing:-.02em!important}.rm-page1-name-highlight{color:#087a78!important}.rm-hero p{max-width:760px!important;font-size:17px!important;line-height:1.45!important}.rm-intro-lede{max-width:860px!important}.rm-step{min-height:286px!important}.rm-step h3{margin-bottom:8px!important}.rm-step-line{margin:0 auto;max-width:260px;color:#526071;font-size:14.6px;line-height:1.35;font-weight:760;text-align:center}@media(max-width:900px){.rm-hero>div{padding-right:0!important}.rm-page1-subheader{font-size:22px!important}.rm-hero p{font-size:16px!important}.rm-step{min-height:auto!important}}';
+      s.textContent='.rm-hero h1{margin-bottom:10px!important}.rm-hero>div{max-width:820px!important;padding-right:72px!important}.rm-page1-subheader{margin:0 0 10px!important;color:#071f3a!important;font-size:25px!important;line-height:1.2!important;font-weight:900!important;letter-spacing:-.02em!important}.rm-page1-name-highlight{color:#087a78!important}.rm-hero p{max-width:760px!important;font-size:17px!important;line-height:1.45!important}.rm-intro-lede{max-width:860px!important;line-height:1.5!important}.rm-page1-location{display:block;margin-top:8px;color:#087a78;font-weight:950;line-height:1.35}.rm-step{min-height:286px!important}.rm-step h3{margin-bottom:8px!important}.rm-step-line{margin:0 auto;max-width:260px;color:#526071;font-size:14.6px;line-height:1.35;font-weight:760;text-align:center}@media(max-width:900px){.rm-hero>div{padding-right:0!important}.rm-page1-subheader{font-size:22px!important}.rm-hero p{font-size:16px!important}.rm-step{min-height:auto!important}}';
       document.head.appendChild(s);
     }
   }
