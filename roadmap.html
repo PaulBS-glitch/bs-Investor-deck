@@ -1,98 +1,12 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BuySooner Roadmap</title>
-  <style>
-    :root{--navy:#071f3a;--teal:#087a78;--muted:#64748b;--border:#d7e5e4;--pale:#eaf6f5;--paper:#f7fbfb;--white:#fff;--text:#1f2933}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:linear-gradient(180deg,#fff 0%,#f7fbfb 55%,#eef8f7 100%);padding:28px}
-    .toolbar{max-width:1120px;margin:0 auto 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--navy);font-weight:900}
-    .toolbar button{border:0;border-radius:999px;padding:11px 16px;text-decoration:none;font-weight:900;font-size:13px;cursor:pointer;background:var(--teal);color:#fff}
-    #roadmap-root{max-width:1120px;margin:0 auto}
-    .empty{background:#fff;border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:0 18px 50px rgba(7,31,58,.08)}
-    .empty h1{margin:0 0 10px;color:var(--navy);font-size:34px;letter-spacing:-.04em}.empty p{margin:0;color:var(--muted);font-size:16px;line-height:1.5;font-weight:700}
-    .rm-table td.rm-wrap-value{text-align:left!important}
-    .rm-hero{position:relative!important;display:block!important;min-height:335px!important;margin-bottom:26px!important;padding:48px 46px!important;overflow:hidden!important;border-radius:28px!important;background:linear-gradient(135deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.90) 58%,rgba(234,246,245,.82) 100%)!important;border:1px solid rgba(215,229,228,.75)!important;box-shadow:0 18px 44px rgba(12,51,88,.07)!important}
-    .rm-hero>div{position:relative!important;z-index:2!important;max-width:720px!important;padding-right:120px!important}
-    .rm-hero .rm-image-card{position:absolute!important;right:-34px!important;top:-32px!important;width:54%!important;height:124%!important;min-height:0!important;aspect-ratio:auto!important;opacity:.34!important;filter:saturate(.9) contrast(.96)!important;transform:none!important;z-index:1!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
-    .rm-hero .rm-image-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.72) 34%,rgba(255,255,255,.16) 100%);z-index:2;pointer-events:none}
-    .rm-hero .rm-image-card img{position:relative!important;z-index:1!important;width:100%!important;height:100%!important;object-fit:cover!important}
-    .rm-hero .rm-image-card.rm1-image-reveal.is-visible{transform:none!important}
-    .rm2-hero{position:relative!important;display:block!important;min-height:335px!important;margin-bottom:22px!important;padding:48px 46px!important;overflow:hidden!important;border-radius:28px!important;background:linear-gradient(135deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.90) 58%,rgba(234,246,245,.82) 100%)!important;border:1px solid rgba(215,229,229,.75)!important;box-shadow:0 18px 44px rgba(12,51,88,.07)!important}
-    .rm2-hero>div{position:relative!important;z-index:2!important;max-width:720px!important;padding-right:120px!important}
-    .rm2-hero .rm2-image-card{position:absolute!important;right:-36px!important;top:-34px!important;width:54%!important;height:124%!important;min-height:0!important;aspect-ratio:auto!important;opacity:.34!important;filter:saturate(.9) contrast(.96)!important;transform:none!important;z-index:1!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
-    .rm2-hero .rm2-image-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.72) 34%,rgba(255,255,255,.16) 100%);z-index:2;pointer-events:none}
-    .rm2-hero .rm2-image-card img{position:relative!important;z-index:1!important;width:100%!important;height:100%!important;object-fit:cover!important}
-    .rm2-hero .rm2-image-card.rm2-reveal.is-visible{transform:none!important}
-    .rm3-hero{position:relative!important;display:block!important;min-height:390px!important;padding:42px 0 34px!important;margin-bottom:28px!important;overflow:hidden!important}
-    .rm3-hero>div{position:relative!important;z-index:2!important;max-width:780px!important;padding-right:90px!important}
-    .rm3-hero .rm3-image-card{position:absolute!important;right:0!important;top:18px!important;width:33%!important;min-height:230px!important;aspect-ratio:1.02/1!important;opacity:.33!important;filter:saturate(.9) contrast(.95)!important;z-index:1!important;box-shadow:none!important;border-color:rgba(215,229,228,.35)!important}
-    .rm3-hero .rm3-image-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.68) 34%,rgba(255,255,255,.18) 100%);z-index:2;pointer-events:none}
-    .rm3-hero .rm3-image-card img{position:relative!important;z-index:1!important}
-    .rm9-hero:after{opacity:.28!important;filter:saturate(.95) contrast(.98)!important}
-    .rm9-topbar.rm9-reveal,.rm9-refi-card.rm9-reveal,.rm9-numbers-card.rm9-reveal,.rm9-track.rm9-reveal,.rm9-actions.rm9-reveal,.rm9-footer.rm9-reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
-    .rm9-topbar.rm9-reveal.is-visible,.rm9-refi-card.rm9-reveal.is-visible,.rm9-numbers-card.rm9-reveal.is-visible,.rm9-track.rm9-reveal.is-visible,.rm9-actions.rm9-reveal.is-visible,.rm9-footer.rm9-reveal.is-visible{opacity:1;transform:translateY(0)}
-    .rm12-next,.rm12-calc-button{background:linear-gradient(180deg,#0a9a93 0%,#087a78 52%,#056261 100%)!important;color:#fff!important;padding:18px 34px!important;font-size:17px!important;font-weight:950!important;border-radius:999px!important;box-shadow:0 16px 28px rgba(8,122,120,.30),0 5px 0 #045452,inset 0 1px 0 rgba(255,255,255,.34)!important;text-shadow:0 1px 1px rgba(0,0,0,.22)!important;transition:transform .16s ease,box-shadow .16s ease,filter .16s ease!important}.rm12-next:hover,.rm12-calc-button:hover{transform:translateY(-2px)!important;filter:saturate(1.04)!important;box-shadow:0 20px 34px rgba(8,122,120,.36),0 6px 0 #045452,inset 0 1px 0 rgba(255,255,255,.38)!important}.rm12-next:active,.rm12-calc-button:active{transform:translateY(3px)!important;box-shadow:0 9px 18px rgba(8,122,120,.24),0 2px 0 #045452,inset 0 1px 0 rgba(255,255,255,.18)!important}
-    .rm12-topbar,.rm12-hero,.rm12-accordion,.rm12-bottom,.rm12-actions,.rm12-footer{animation:rm12LiftIn .58s ease both}.rm12-hero{animation-delay:.06s}.rm12-accordion{animation-delay:.14s}.rm12-bottom{animation-delay:.22s}.rm12-actions{animation-delay:.30s}.rm12-footer{animation-delay:.36s}.rm12-acc{opacity:0;animation:rm12LiftIn .5s ease both}.rm12-acc:nth-child(1){animation-delay:.20s}.rm12-acc:nth-child(2){animation-delay:.25s}.rm12-acc:nth-child(3){animation-delay:.30s}.rm12-acc:nth-child(4){animation-delay:.35s}.rm12-acc:nth-child(5){animation-delay:.40s}.rm12-acc:nth-child(6){animation-delay:.45s}.rm12-acc:nth-child(7){animation-delay:.50s}@keyframes rm12LiftIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:900px){.rm-hero{display:grid!important;grid-template-columns:1fr!important;min-height:auto!important;padding:30px 24px!important}.rm-hero>div{padding-right:0!important}.rm-hero .rm-image-card{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;aspect-ratio:1.1/1!important;opacity:.55!important;margin-top:20px!important;border-radius:20px!important}.rm-hero .rm-image-card:before{display:none!important}.rm2-hero{display:grid!important;grid-template-columns:1fr!important;min-height:auto!important;padding:30px 24px!important}.rm2-hero>div{padding-right:0!important}.rm2-hero .rm2-image-card{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;aspect-ratio:1.22/1!important;opacity:.55!important;margin-top:20px!important;border-radius:20px!important}.rm2-hero .rm2-image-card:before{display:none!important}.rm3-hero{display:grid!important;grid-template-columns:1fr!important;min-height:auto!important;padding:0!important}.rm3-hero>div{padding-right:0!important}.rm3-hero .rm3-image-card{position:relative!important;right:auto!important;top:auto!important;width:100%!important;opacity:.55!important;margin-top:20px!important}.rm3-hero .rm3-image-card:before{display:none!important}.rm9-hero:after{opacity:.16!important}}
-    @media print{body{background:#fff;padding:0}.toolbar{display:none}.rm9-reveal,.rm12-topbar,.rm12-hero,.rm12-accordion,.rm12-bottom,.rm12-actions,.rm12-footer,.rm12-acc{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuySooner Prototype Roadmap</title>
+  <meta http-equiv="refresh" content="0; url=https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">
 </head>
 <body>
-  <div class="toolbar">
-    <span>BuySooner Roadmap</span>
-    <div>
-      <button type="button" onclick="window.print()">Print / Save PDF</button>
-    </div>
-  </div>
-  <main id="roadmap-root">
-    <section class="empty">
-      <h1>No roadmap data found</h1>
-      <p>Complete the prototype first, then use the final roadmap action to capture the scenario and open this report.</p>
-    </section>
-  </main>
-  <script src="roadmap-data.js?v=20260526-01"></script>
-  <script src="roadmap-cover.js?v=20260522-06"></script>
-  <script src="roadmap-cover-refinements.js?v=20260522-01"></script>
-  <script src="roadmap-page0-dream.js?v=20260522-06"></script>
-  <script src="roadmap-page0-dream-refinements.js?v=20260522-02"></script>
-  <script src="roadmap-page1.js?v=20260522-02"></script>
-  <script src="roadmap-page1-refinements.js?v=20260522-05"></script>
-  <script src="roadmap-page2.js?v=20260522-06"></script>
-  <script src="roadmap-page2-refinements.js?v=20260522-01"></script>
-  <script src="roadmap-page3.js?v=20260522-06"></script>
-  <script src="roadmap-page3-refinements.js?v=20260522-01"></script>
-  <script src="roadmap-page4.js?v=20260522-06"></script>
-  <script src="roadmap-page4-refinements.js?v=20260522-01"></script>
-  <script src="roadmap-page5.js?v=20260522-06"></script>
-  <script src="roadmap-page6.js?v=20260522-06"></script>
-  <script src="roadmap-page6-refinements.js?v=20260522-02"></script>
-  <script src="roadmap-page7.js?v=20260522-06"></script>
-  <script src="roadmap-page7-refinements.js?v=20260522-07"></script>
-  <script src="roadmap-page8.js?v=20260522-06"></script>
-  <script src="roadmap-page8-refinements.js?v=20260522-04"></script>
-  <script src="roadmap-page9.js?v=20260522-06"></script>
-  <script src="roadmap-page9-refinements.js?v=20260522-06"></script>
-  <script src="roadmap-page9a-calculator.js?v=20260522-06"></script>
-  <script src="roadmap-lvr-status-bands.js?v=20260522-06"></script>
-  <script src="roadmap-page9-exit-refinements.js?v=20260522-02"></script>
-  <script src="roadmap-page10.js?v=20260522-06"></script>
-  <script src="roadmap-page10-refinements.js?v=20260522-07"></script>
-  <script src="roadmap-page11.js?v=20260522-06"></script>
-  <script src="roadmap-page12.js?v=20260522-06"></script>
-  <script src="roadmap-page13-final.js?v=20260526-02"></script>
-  <script src="roadmap-page7-to-8.js?v=20260522-06"></script>
-  <script src="roadmap-page8-to-9.js?v=20260522-06"></script>
-  <link rel="stylesheet" href="roadmap-mobile-fixes.css?v=20260526-01">
-  <script>
-    const data = window.BSRoadmap && window.BSRoadmap.load ? window.BSRoadmap.load() : null;
-    if (data && window.renderRoadmapCover) {
-      window.renderRoadmapCover(data, document.getElementById('roadmap-root'));
-    } else if (data && window.renderRoadmapPage1) {
-      window.renderRoadmapPage1(data, document.getElementById('roadmap-root'));
-    }
-  </script>
+  <p><a href="https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">Open the exact BuySooner prototype roadmap</a></p>
 </body>
 </html>
