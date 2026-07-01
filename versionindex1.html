@@ -3,66 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BuySooner Roadmap — Data Capture</title>
-  <style>
-    :root{--navy:#071f3a;--teal:#087a78;--teal-dark:#056261;--pale:#eaf6f5;--border:#d7e5e4;--muted:#64748b;--text:#1f2933;--white:#fff}
-    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(8,122,120,.10),transparent 32%),linear-gradient(180deg,#fff 0%,#f7fbfb 48%,#eef8f7 100%)}
-    .page{min-height:100vh;display:flex;justify-content:center;padding:32px 20px 44px}.shell{width:100%;max-width:1180px}.brand-row{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:22px}.brand h1{margin:0;color:var(--navy);font-family:Georgia,'Times New Roman',serif;font-size:42px;letter-spacing:-.04em;line-height:.95}.brand-line{width:54px;height:4px;background:var(--teal);border-radius:999px;margin:12px 0 10px}.brand p{margin:0;color:var(--teal);font-size:15px;font-weight:800}.progress{min-width:270px;text-align:right}.progress-label{color:var(--navy);font-size:13px;font-weight:900;margin-bottom:9px}.progress-track{width:100%;height:7px;background:#dbe9e8;border-radius:999px;overflow:hidden}.progress-bar{height:100%;width:14%;background:var(--teal);border-radius:999px}.card{background:var(--white);border:1px solid var(--border);border-radius:28px;box-shadow:0 22px 70px rgba(7,31,58,.10);overflow:hidden}.hero{position:relative;padding:42px 44px 30px;background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.92) 57%,rgba(234,246,245,.72) 100%);border-bottom:1px solid var(--border);overflow:hidden}.hero-copy{position:relative;z-index:2;max-width:760px}.hero h2{margin:0 0 12px;color:var(--navy);font-family:Georgia,'Times New Roman',serif;font-size:46px;letter-spacing:-.04em;line-height:1.03}.hero .promise{margin:0 0 26px;max-width:760px;color:var(--teal);font-size:19px;line-height:1.5;font-weight:900}.hero-img{position:absolute;right:-26px;top:-22px;width:43%;height:118%;opacity:.28;object-fit:cover;filter:saturate(.95) contrast(.96)}.check-title{margin:0 0 10px;color:var(--navy);font-family:Georgia,'Times New Roman',serif;font-size:31px;letter-spacing:-.025em;line-height:1.1}.check-copy{margin:0;max-width:780px;color:var(--muted);font-size:15px;line-height:1.5;font-weight:700}.form-area{padding:30px 44px 36px}.fact-title{margin:0 0 18px;color:var(--teal);font-size:20px;font-weight:900;line-height:1.35;text-align:center}.fact-strip{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 30px;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff}.fact-card{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:center;padding:22px;min-height:126px;border-right:1px solid var(--border)}.fact-card:last-child{border-right:0}.fact-icon{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--pale);color:var(--teal);font-weight:900;font-size:24px}.fact-card strong{display:block;color:var(--navy);font-size:15px;line-height:1.2;margin-bottom:5px}.fact-card span{display:block;color:var(--text);font-size:13px;line-height:1.3}.discovery-grid{display:grid;gap:18px}.section-card{border:1px solid var(--border);border-radius:22px;background:#fff;padding:22px}.section-title{margin:0 0 18px;color:var(--navy);font-size:21px;font-weight:900;letter-spacing:-.015em}.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field.full{grid-column:span 2}label.label{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:14px;font-weight:900;color:var(--navy);margin-bottom:7px}.required:after{content:' *';color:var(--teal)}.optional{color:var(--muted);font-weight:800;font-size:12px}input,select{width:100%;border:1px solid #c9d9d8;border-radius:15px;padding:14px 15px;font-size:15px;outline:0;background:#fff;color:var(--text)}input:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(8,122,120,.12)}.help{color:var(--muted);font-size:12px;line-height:1.4;margin-top:6px}.radio-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.radio-card{border:1px solid #c9d9d8;border-radius:17px;padding:15px;cursor:pointer;display:flex;gap:11px;align-items:flex-start;min-height:84px}.radio-card:hover{border-color:var(--teal)}.radio-card input{width:auto;margin-top:2px}.radio-title{font-weight:900;color:var(--navy);margin-bottom:4px;font-size:15px;display:block}.radio-help{color:var(--muted);font-size:12.5px;line-height:1.35;display:block}.actions{margin-top:30px;display:grid;grid-template-columns:minmax(240px,auto) 1fr;gap:16px;align-items:center}button,.primary-link{appearance:none;border:0;border-radius:999px;padding:16px 26px;font-size:15px;font-weight:900;cursor:pointer;background:var(--teal);color:#fff;box-shadow:0 10px 24px rgba(8,122,120,.22);text-decoration:none;text-align:center}.primary-link:hover{background:var(--teal-dark)}.safety{color:var(--muted);font-size:14px;line-height:1.4}.safety strong{display:block;color:var(--navy);font-size:14px;margin-bottom:3px}.error{display:none;margin:0 0 22px;padding:14px 16px;border-radius:12px;background:#fff4f2;border:1px solid #f4b8ae;color:#b42318;font-size:13px;line-height:1.5;font-weight:800}.error.visible{display:block}@media(max-width:800px){.brand-row{display:block}.progress{text-align:left;margin-top:18px}.hero{padding:30px 24px}.hero-img{position:relative;right:auto;top:auto;width:100%;height:auto;max-height:260px;margin-top:22px;border-radius:20px;opacity:.55}.form-area{padding:24px}.fields,.fact-strip,.radio-row{grid-template-columns:1fr}.field.full{grid-column:auto}.fact-card{border-right:0;border-bottom:1px solid var(--border)}.fact-card:last-child{border-bottom:0}.actions{grid-template-columns:1fr}.hero h2{font-size:36px}}
-  </style>
+  <title>BuySooner Prototype Roadmap</title>
+  <meta http-equiv="refresh" content="0; url=https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">
 </head>
 <body>
-  <main class="page">
-    <section class="shell">
-      <div class="brand-row">
-        <div class="brand"><h1>BuySooner</h1><div class="brand-line"></div><p>Roadmap intake</p></div>
-        <div class="progress"><div class="progress-label">Step 1 of 7 — Your details</div><div class="progress-track"><div class="progress-bar"></div></div></div>
-      </div>
-      <section class="card">
-        <header class="hero">
-          <img class="hero-img" src="p1.jpg" alt="BuySooner roadmap customer image">
-          <div class="hero-copy">
-            <h2>It’s never been harder to achieve the Great Australian Dream.</h2>
-            <p class="promise">BuySooner helps you bridge the deposit gap, move into the home you want, and build equity from day one.</p>
-            <h3 class="check-title">Your 5-Minute Ownership Check</h3>
-            <p class="check-copy">Discover your buying power and your personalised BuySooner roadmap in one simple view.</p>
-          </div>
-        </header>
-        <form class="form-area" id="intakeForm">
-          <p class="fact-title">The deposit gap is the problem. The roadmap starts with your numbers.</p>
-          <div class="fact-strip">
-            <div class="fact-card"><div class="fact-icon">↗</div><div><strong>Home values surged</strong><span>Deposit targets keep moving.</span></div></div>
-            <div class="fact-card"><div class="fact-icon">%</div><div><strong>Affordability is tighter</strong><span>Waiting can make the gap worse.</span></div></div>
-            <div class="fact-card"><div class="fact-icon">5+</div><div><strong>Deposits still take years</strong><span>BuySooner tests whether you can move sooner.</span></div></div>
-          </div>
-          <div class="error" id="errorBox">Please complete the required fields before continuing.</div>
-          <div class="discovery-grid">
-            <section class="section-card"><h3 class="section-title">Your details</h3><div class="fields"><div class="field"><label class="label required">First name</label><input id="firstName" autocomplete="given-name" required></div><div class="field"><label class="label required">Last name</label><input id="lastName" autocomplete="family-name" required></div><div class="field"><label class="label required">Email</label><input id="email" type="email" autocomplete="email" required></div><div class="field"><label class="label required">Mobile</label><input id="mobile" autocomplete="tel" required></div></div></section>
-            <section class="section-card"><h3 class="section-title">Where are you today?</h3><div class="radio-row"><label class="radio-card"><input type="radio" name="customerType" value="renting" checked><span><span class="radio-title">I am renting</span><span class="radio-help">I want to buy rather than keep paying rent.</span></span></label><label class="radio-card"><input type="radio" name="customerType" value="upgrading"><span><span class="radio-title">I own and want to upgrade</span><span class="radio-help">I want to move into a better home sooner.</span></span></label></div></section>
-            <section class="section-card"><h3 class="section-title">What do you want to buy?</h3><div class="fields"><div class="field"><label class="label required">Target purchase price</label><input id="targetPrice" inputmode="numeric" placeholder="$1,200,000" required></div><div class="field"><label class="label required">Target area</label><input id="targetArea" placeholder="e.g. Crows Nest, Mosman, Adelaide" required></div><div class="field full"><label class="label">Specific property address <span class="optional">optional</span></label><input id="propertyAddress" placeholder="Paste the property address if you have one"></div></div></section>
-            <section class="section-card"><h3 class="section-title">What do you have now?</h3><div class="fields"><div class="field"><label class="label required">Available contribution / deposit</label><input id="contribution" inputmode="numeric" placeholder="$120,000" required></div><div class="field"><label class="label">Current rent or housing cost <span class="optional">optional</span></label><input id="housingCost" inputmode="numeric" placeholder="$4,000 per month"></div></div></section>
-          </div>
-          <div class="actions"><button type="submit">Review My Details →</button><div class="safety"><strong>This is not approval.</strong> The roadmap is indicative and subject to credit, lender and BuySooner assessment.</div></div>
-        </form>
-      </section>
-    </section>
-  </main>
-  <script>
-    function cleanMoney(v){return Number(String(v||'').replace(/[^0-9.]/g,''))||0}
-    document.getElementById('intakeForm').addEventListener('submit',function(e){
-      e.preventDefault();
-      var required=['firstName','lastName','email','mobile','targetPrice','targetArea','contribution'];
-      var ok=required.every(function(id){return document.getElementById(id).value.trim().length>0});
-      document.getElementById('errorBox').classList.toggle('visible',!ok);
-      if(!ok)return;
-      var data={
-        firstName:firstName.value.trim(),lastName:lastName.value.trim(),email:email.value.trim(),mobile:mobile.value.trim(),
-        customerType:(document.querySelector('input[name="customerType"]:checked')||{}).value||'renting',
-        targetPurchasePrice:cleanMoney(targetPrice.value),targetArea:targetArea.value.trim(),propertyAddress:propertyAddress.value.trim(),
-        contribution:cleanMoney(contribution.value),housingCost:cleanMoney(housingCost.value)
-      };
-      localStorage.setItem('bsRoadmapIntake',JSON.stringify(data));
-      alert('Details captured. Next step: connect this intake to the roadmap calculation screens.');
-    });
-  </script>
+  <p><a href="https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">Open the exact BuySooner prototype roadmap</a></p>
 </body>
 </html>
