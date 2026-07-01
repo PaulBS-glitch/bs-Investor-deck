@@ -4,9 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BuySooner Prototype Roadmap</title>
-  <meta http-equiv="refresh" content="0; url=https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#eef8f7}
+    iframe{display:block;width:100vw;height:100vh;border:0;background:#eef8f7}
+  </style>
 </head>
 <body>
-  <p><a href="https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">Open the exact BuySooner prototype roadmap</a></p>
+  <iframe id="prototypeFrame" src="versionindex1?v=html-entry" title="BuySooner Prototype Roadmap"></iframe>
+  <script>
+    (function(){
+      var frame=document.getElementById('prototypeFrame');
+      function patch(){
+        try{
+          var w=frame.contentWindow;
+          var d=frame.contentDocument || w.document;
+          var button=d.getElementById('routeButton');
+          if(!button || button.dataset.planFirst==='1') return;
+          button.dataset.planFirst='1';
+          button.addEventListener('click',function(ev){
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+            if(typeof w.buildScenario==='function'){
+              var result=w.buildScenario();
+              if(result && result.messages && result.messages.length) return;
+              w.scenario=result.data;
+            }
+            if(w.BSRoadmap && typeof w.BSRoadmap.save==='function') w.BSRoadmap.save();
+            w.location.href='roadmap.html?v=personalised-plan-first';
+          },true);
+        }catch(e){}
+      }
+      frame.addEventListener('load',function(){patch();setTimeout(patch,300);setTimeout(patch,1000);});
+      setInterval(patch,1000);
+    })();
+  </script>
 </body>
 </html>
