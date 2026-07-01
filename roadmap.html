@@ -1,12 +1,35 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BuySooner Prototype Roadmap</title>
-  <meta http-equiv="refresh" content="0; url=https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BuySooner Roadmap</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbfb;color:#1f2933;padding:28px}#roadmap-root{max-width:1120px;margin:0 auto}.empty{background:#fff;border:1px solid #d7e5e4;border-radius:24px;padding:30px;box-shadow:0 18px 50px rgba(7,31,58,.08)}.empty h1{margin:0 0 10px;color:#071f3a;font-size:34px}.empty p{margin:0;color:#64748b;font-size:16px;line-height:1.5;font-weight:700}
+</style>
 </head>
 <body>
-  <p><a href="https://paulbs-glitch.github.io/BuySooner-prototype-roadmap-live/">Open the exact BuySooner prototype roadmap</a></p>
+<main id="roadmap-root"><section class="empty"><h1>No roadmap data found</h1><p>Complete the prototype first, then open this roadmap.</p></section></main>
+<script>
+(function(){
+var files=['roadmap-data.js','roadmap-cover.js','roadmap-cover-refinements.js','roadmap-page0-dream.js','roadmap-page0-dream-refinements.js','roadmap-page1.js','roadmap-page1-refinements.js','roadmap-page2.js','roadmap-page2-refinements.js','roadmap-page3.js','roadmap-page3-refinements.js','roadmap-page4.js','roadmap-page4-refinements.js','roadmap-page5.js','roadmap-page6.js','roadmap-page6-refinements.js','roadmap-page7.js','roadmap-page7-refinements.js','roadmap-page8.js','roadmap-page8-refinements.js','roadmap-page9.js','roadmap-page9-refinements.js','roadmap-page9a-calculator.js','roadmap-lvr-status-bands.js','roadmap-page9-exit-refinements.js','roadmap-page10.js','roadmap-page10-refinements.js','roadmap-page11.js','roadmap-page12.js','roadmap-page13-final.js','roadmap-page7-to-8.js','roadmap-page8-to-9.js'];
+var i=0;
+function loadNext(){
+ if(i>=files.length){render();return;}
+ var s=document.createElement('script');
+ s.src=files[i++]+'?v=plan-first';
+ s.onload=loadNext;
+ s.onerror=loadNext;
+ document.body.appendChild(s);
+}
+function render(){
+ var root=document.getElementById('roadmap-root');
+ var data=window.BSRoadmap&&window.BSRoadmap.load?window.BSRoadmap.load():null;
+ if(data&&window.renderRoadmapCover){window.renderRoadmapCover(data,root);return;}
+ if(data&&window.renderRoadmapPage1){window.renderRoadmapPage1(data,root);return;}
+}
+loadNext();
+})();
+</script>
 </body>
 </html>
