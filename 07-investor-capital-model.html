@@ -3,59 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>08 Institutional Facility Model</title>
+  <title>08 Capital Model</title>
   <link rel="stylesheet" href="investor.css">
+  <style>
+    .capital-card-spacious{max-width:1240px;min-height:820px;padding:54px 70px 38px!important;display:flex;flex-direction:column}.capital-hero{display:grid;grid-template-columns:1.08fr .92fr;gap:58px;align-items:end;margin-bottom:38px}.capital-hero h1{font-size:clamp(46px,5vw,70px);line-height:.96;letter-spacing:-.058em;max-width:800px;margin:10px 0 0;color:#071f3a}.capital-lead{border-left:3px solid #087a78;padding-left:26px}.capital-lead p{font-size:20px;line-height:1.48;color:#2d3d52;font-weight:820;margin:0;max-width:470px}.lead-label,.position-label,.exposure-num{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950}.lead-label{margin-bottom:14px}
+    .capital-position{display:grid;grid-template-columns:245px 1fr;gap:38px;border-top:1px solid rgba(7,31,58,.16);border-bottom:1px solid rgba(7,31,58,.16);padding:30px 0;margin-bottom:34px}.position-rows{display:grid;gap:0}.position-row{display:grid;grid-template-columns:260px 1fr;gap:28px;border-bottom:1px solid rgba(7,31,58,.10);padding:18px 0}.position-row:first-child{padding-top:0}.position-row:last-child{border-bottom:0;padding-bottom:0}.position-row h3{font-size:22px;line-height:1.12;color:#071f3a;margin:0}.position-row p{font-size:15.5px;line-height:1.45;color:#43546b;font-weight:760;margin:0;max-width:700px}
+    .exposure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-bottom:auto}.exposure-item{border-top:3px solid #087a78;padding-top:18px;min-height:165px}.exposure-item h3{font-size:23px;line-height:1.12;color:#071f3a;margin:14px 0 12px}.exposure-item p{font-size:15.5px;line-height:1.46;color:#43546b;font-weight:760;margin:0}.capital-bottom{border-top:1px solid rgba(7,31,58,.14);padding-top:18px;margin-top:38px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.takeaway-line{font-size:15px;line-height:1.45;color:#071f3a;font-weight:820;max-width:860px}.takeaway-line strong{color:#087a78}.capital-card-spacious .nav{margin:0;min-width:190px}
+    .capital-hero,.capital-position,.exposure-item,.capital-bottom{opacity:0;transform:translateY(28px);animation:capitalRise .85s cubic-bezier(.16,.78,.2,1) forwards}.capital-hero{animation-delay:.08s}.capital-position{animation-delay:.36s}.exposure-item:nth-child(1){animation-delay:.72s}.exposure-item:nth-child(2){animation-delay:.98s}.exposure-item:nth-child(3){animation-delay:1.24s}.capital-bottom{animation-delay:1.56s}@keyframes capitalRise{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:980px){.capital-card-spacious{min-height:auto;padding:34px 24px!important}.capital-hero,.capital-position{grid-template-columns:1fr;gap:24px}.capital-hero h1{font-size:40px}.capital-lead{border-left:0;border-top:3px solid #087a78;padding:18px 0 0}.position-row{grid-template-columns:1fr;gap:8px}.exposure-grid{grid-template-columns:1fr}.capital-bottom{grid-template-columns:1fr}.capital-hero,.capital-position,.exposure-item,.capital-bottom{animation:none;opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <main class="page">
-    <section class="shell card">
-      <div class="eyebrow reveal reveal-1">08 / Institutional facility model</div>
-      <h1 class="reveal reveal-1">Investor capital funds diversified contribution-layer positions, not whole-property exposure.</h1>
-      <p class="lead reveal reveal-2">The proposed AUD $100 million warehouse facility is structured around capital recovery, liquidity serviceability and lender protection, with exposure limited to the BuySooner contribution layer.</p>
-
-      <div class="grid reveal reveal-3">
-        <article class="tile">
-          <span class="tag">Facility</span>
-          <h3>AUD $100 million</h3>
-          <p>Senior secured warehouse facility designed to fund BuySooner contribution positions.</p>
-        </article>
-        <article class="tile">
-          <span class="tag">Diversification</span>
-          <h3>Approximately 800 positions</h3>
-          <p>Average exposure of approximately $125,000 per contribution position.</p>
-        </article>
-        <article class="tile">
-          <span class="tag">Exposure</span>
-          <h3>Narrow contribution layer</h3>
-          <p>The facility funds the BuySooner layer, not the customer’s whole property purchase.</p>
-        </article>
-      </div>
-
-      <div class="grid two reveal reveal-4">
-        <article class="tile">
-          <h3>Illustrative capital stack</h3>
-          <table>
-            <tbody>
-              <tr><td>Senior mortgage</td><td>80%</td></tr>
-              <tr><td>Borrower equity</td><td>10%</td></tr>
-              <tr><td>BuySooner contribution</td><td>10%</td></tr>
-            </tbody>
-          </table>
-        </article>
-        <article class="tile">
-          <h3>Eight-layer protection framework</h3>
-          <p>Borrower equity, senior lender underwriting, BuySooner underwriting, eligibility controls, mandatory P&amp;I amortisation, Stage 2 governance, recovery waterfall and portfolio refinanceability.</p>
-        </article>
-      </div>
-
-      <div class="callout reveal reveal-5">
-        <strong>Institutional takeaway:</strong> the lender is underwriting capital recovery and liquidity serviceability, not a speculative housing-growth thesis.
-      </div>
-
-      <div class="nav reveal reveal-5">
-        <a class="secondary" href="06-how-buysooner-gets-paid.html">Back</a>
-        <a href="08-credit-controls.html">Next</a>
-      </div>
+    <section class="shell card capital-card-spacious">
+      <div class="capital-hero"><div><div class="eyebrow">08 / Capital model</div><h1>Investor capital funds the BuySooner contribution layer, not the whole property.</h1></div><div class="capital-lead"><div class="lead-label">Investable position</div><p>BuySooner aggregates defined contribution positions originated through eligible home-buyer transactions. Each position is linked to a customer-owned residential property and exits through refinance or sale.</p></div></div>
+      <section class="capital-position"><div class="position-label">Capital position</div><div class="position-rows"><article class="position-row"><h3>Senior mortgage</h3><p>First-ranking lender exposure underwritten and held by the senior lender.</p></article><article class="position-row"><h3>Customer equity</h3><p>Borrower capital at risk from day one, sitting ahead of the BuySooner contribution economics.</p></article><article class="position-row"><h3>BuySooner contribution</h3><p>Defined contribution-layer position funded by investor capital and governed by eligibility, contribution limits, exit testing and recovery controls.</p></article></div></section>
+      <section class="exposure-grid"><article class="exposure-item"><div class="exposure-num">01 / Diversified positions</div><h3>Exposure is pooled across transactions.</h3><p>Capital is deployed across multiple customer transactions rather than into a single asset or borrower.</p></article><article class="exposure-item"><div class="exposure-num">02 / Narrow exposure layer</div><h3>The investor funds the layer.</h3><p>The exposure is to the BuySooner contribution position, not to the customer’s whole property value.</p></article><article class="exposure-item"><div class="exposure-num">03 / Exit-led recovery</div><h3>Repayment comes through refinance or sale.</h3><p>Recovery is governed by credit policy, exit testing, portfolio monitoring and fallback controls.</p></article></section>
+      <div class="capital-bottom"><div class="takeaway-line"><strong>Institutional takeaway:</strong> the investor is not funding speculative whole-property exposure. The investable position is a diversified, governed contribution-layer portfolio with recovery and liquidity controls.</div><div class="nav"><a class="secondary" href="06-how-buysooner-gets-paid.html?v=business-flow">Back</a><a href="08-credit-controls.html">Next</a></div></div>
     </section>
   </main>
 </body>
