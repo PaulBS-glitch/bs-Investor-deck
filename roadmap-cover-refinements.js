@@ -31,7 +31,7 @@
     if(!document.getElementById(styleId)){
       var s=document.createElement('style');
       s.id=styleId;
-      s.textContent='.rmc-contents{margin-top:34px!important}.rmc-index li{padding:12px 0 14px!important}.rmc-footer-wrap{bottom:34px!important}.rmc-help{margin-bottom:14px!important}.rmc-actions{bottom:124px!important}';
+      s.textContent='.rmc-contents{margin-top:30px!important}.rmc-contents h2{margin-bottom:18px!important}.rmc-index li{padding:21px 0 23px!important;grid-template-columns:50px 1fr!important;gap:19px!important}.rmc-index span{width:38px!important;height:38px!important;font-size:16.5px!important}.rmc-index strong{font-size:22.8px!important;margin-bottom:7px!important}.rmc-index p{font-size:17.8px!important;line-height:1.5!important}.rmc-footer-wrap{bottom:34px!important}.rmc-help{margin-bottom:14px!important}.rmc-actions{bottom:124px!important}@media(max-width:900px){.rmc-index li{padding:17px 0 18px!important;grid-template-columns:46px 1fr!important;gap:16px!important}.rmc-index strong{font-size:19px!important}.rmc-index p{font-size:15.2px!important}}';
       document.head.appendChild(s);
     }
   }
