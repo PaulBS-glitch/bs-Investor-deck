@@ -6,85 +6,60 @@
   <title>02 The Problem</title>
   <link rel="stylesheet" href="investor.css">
   <style>
-    .problem-card-final{max-width:1100px;padding:46px 52px 34px!important}
-    .problem-card-final .problem-hero{margin-bottom:26px}
-    .problem-card-final .problem-hero h1{font-size:clamp(46px,5.8vw,72px);line-height:.93;letter-spacing:-.06em;max-width:1000px;margin:8px 0 16px;color:#071f3a}
-    .problem-card-final .lead{max-width:940px;font-size:clamp(18px,1.9vw,23px);line-height:1.44;color:#2d3d52;font-weight:820}
-    .problem-block{border-top:1px solid rgba(7,31,58,.14);border-bottom:1px solid rgba(7,31,58,.14);padding:22px 0;margin:8px 0 22px}
-    .block-label,.proof-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:10px}
-    .problem-block p{font-size:16px;line-height:1.48;color:#2d3d52;font-weight:760;margin:0 0 10px;max-width:980px}.problem-block p:last-child{margin-bottom:0}
-    .problem-sequence{display:grid;grid-template-columns:1fr;gap:12px;margin:0 0 24px}
-    .sequence-row{display:grid;grid-template-columns:74px 1fr;gap:20px;align-items:center;border:1px solid rgba(7,31,58,.14);border-radius:18px;background:#fff;padding:20px 24px;box-shadow:0 12px 24px rgba(7,31,58,.04)}
-    .sequence-row span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#087a78;font-weight:950}.sequence-row h3{margin:0 0 4px;font-size:21px;color:#071f3a}.sequence-row p{margin:0;font-size:15px;line-height:1.38;color:#43546b;font-weight:760}
-    .proof-band{border:1px solid rgba(7,31,58,.14);border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(234,246,245,.72));padding:19px 22px 14px;margin-bottom:18px;box-shadow:0 14px 28px rgba(7,31,58,.045)}
-    .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.proof-item{border-left:3px solid #087a78;padding:4px 0 4px 14px}.proof-item strong{display:block;font-size:clamp(34px,4.2vw,52px);line-height:.9;letter-spacing:-.045em;color:#087a78;margin-bottom:7px}.proof-item h3{margin:0 0 4px;font-size:15px;color:#071f3a}.proof-item p{margin:0;font-size:12px;line-height:1.35;color:#526178;font-weight:740}
-    .source-note{font-size:10px;line-height:1.35;color:#66758a;font-weight:700;margin:10px 0 0}
-    .problem-card-final .problem-takeaway{margin-top:14px;background:linear-gradient(135deg,rgba(7,31,58,.97),rgba(8,122,120,.92));color:#fff;border:0;border-left:0;padding:18px 22px;border-radius:16px;box-shadow:0 16px 30px rgba(7,31,58,.15)}.problem-card-final .problem-takeaway strong{color:#fff}
-    .problem-card-final .problem-hero,.problem-block,.sequence-row,.proof-band,.problem-card-final .problem-takeaway,.problem-card-final .nav{opacity:0;transform:translateY(20px);animation:slide2Lift .72s cubic-bezier(.2,.7,.2,1) forwards}.problem-card-final .problem-hero{animation-delay:.05s}.problem-block{animation-delay:.22s}.sequence-row:nth-child(1){animation-delay:.42s}.sequence-row:nth-child(2){animation-delay:.62s}.sequence-row:nth-child(3){animation-delay:.82s}.proof-band{animation-delay:1.05s}.problem-card-final .problem-takeaway{animation-delay:1.26s}.problem-card-final .nav{animation-delay:1.42s}.proof-item{opacity:0;transform:translateY(12px);animation:slide2Lift .58s cubic-bezier(.2,.7,.2,1) forwards}.proof-item:nth-child(1){animation-delay:1.18s}.proof-item:nth-child(2){animation-delay:1.32s}.proof-item:nth-child(3){animation-delay:1.46s}
-    .sequence-row,.proof-item{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.sequence-row:hover{transform:translateY(-2px);box-shadow:0 18px 32px rgba(7,31,58,.075);border-color:rgba(8,122,120,.34)}
-    @keyframes slide2Lift{to{opacity:1;transform:translateY(0)}}
-    @media(max-width:860px){.problem-card-final{padding:30px 22px!important}.proof-grid{grid-template-columns:1fr}.sequence-row{grid-template-columns:52px 1fr;padding:16px}.problem-card-final .problem-hero h1{font-size:42px}.problem-card-final .problem-hero,.problem-block,.sequence-row,.proof-band,.problem-card-final .problem-takeaway,.problem-card-final .nav,.proof-item{animation:none;opacity:1;transform:none}}
+    .problem-card-spacious{max-width:1240px;min-height:820px;padding:54px 70px 38px!important;display:flex;flex-direction:column}
+    .problem-hero-spacious{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:end;margin-bottom:38px}
+    .problem-hero-spacious h1{font-size:clamp(48px,5.2vw,72px);line-height:.95;letter-spacing:-.058em;max-width:760px;margin:10px 0 0;color:#071f3a}
+    .problem-lead-block{border-left:3px solid #087a78;padding-left:26px}.problem-lead-block p{margin:0;color:#2d3d52;font-size:21px;line-height:1.48;font-weight:820;max-width:430px}.solve-line{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:14px}
+    .problem-core-spacious{display:grid;grid-template-columns:245px 1fr;gap:38px;border-top:1px solid rgba(7,31,58,.16);border-bottom:1px solid rgba(7,31,58,.16);padding:34px 0;margin-bottom:34px}.section-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;padding-top:6px}.problem-core-spacious p{font-size:20px;line-height:1.55;color:#2d3d52;font-weight:760;margin:0 0 16px;max-width:890px}.problem-core-spacious p:last-child{margin-bottom:0}
+    .problem-sequence-spacious{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-bottom:auto}.problem-step{border-top:3px solid #087a78;padding-top:18px;min-height:150px}.problem-step .num{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:15px}.problem-step h3{font-size:24px;line-height:1.1;color:#071f3a;margin:0 0 12px}.problem-step p{font-size:15.8px;line-height:1.46;color:#43546b;font-weight:760;margin:0}
+    .proof-spacious{border-top:1px solid rgba(7,31,58,.14);padding-top:22px;margin-top:34px}.proof-label-spacious{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:18px}.proof-grid-spacious{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.proof-stat strong{display:block;font-size:clamp(42px,4.6vw,62px);line-height:.9;letter-spacing:-.045em;color:#087a78;margin-bottom:9px}.proof-stat h3{font-size:16px;color:#071f3a;margin:0 0 5px}.proof-stat p{font-size:12.5px;line-height:1.35;color:#526178;font-weight:740;margin:0}.source-note{font-size:10px;color:#66758a;font-weight:700;margin:14px 0 0}
+    .problem-bottom{border-top:1px solid rgba(7,31,58,.14);padding-top:18px;margin-top:24px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.problem-takeaway-line{font-size:15px;line-height:1.45;color:#071f3a;font-weight:820;max-width:790px}.problem-takeaway-line strong{color:#087a78}.problem-card-spacious .nav{margin:0;min-width:190px}
+    .problem-hero-spacious,.problem-core-spacious,.problem-step,.proof-spacious,.problem-bottom{opacity:0;transform:translateY(28px);animation:problemRise .85s cubic-bezier(.16,.78,.2,1) forwards}.problem-hero-spacious{animation-delay:.08s}.problem-core-spacious{animation-delay:.35s}.problem-step:nth-child(1){animation-delay:.70s}.problem-step:nth-child(2){animation-delay:.94s}.problem-step:nth-child(3){animation-delay:1.18s}.proof-spacious{animation-delay:1.48s}.problem-bottom{animation-delay:1.75s}.proof-stat{opacity:0;transform:translateY(18px);animation:problemRise .68s cubic-bezier(.16,.78,.2,1) forwards}.proof-stat:nth-child(1){animation-delay:1.62s}.proof-stat:nth-child(2){animation-delay:1.78s}.proof-stat:nth-child(3){animation-delay:1.94s}
+    @keyframes problemRise{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:940px){.problem-card-spacious{min-height:auto;padding:34px 24px!important}.problem-hero-spacious{grid-template-columns:1fr;gap:24px}.problem-hero-spacious h1{font-size:42px}.problem-lead-block{border-left:0;border-top:3px solid #087a78;padding:18px 0 0}.problem-core-spacious{grid-template-columns:1fr;gap:12px}.problem-sequence-spacious,.proof-grid-spacious{grid-template-columns:1fr}.problem-bottom{grid-template-columns:1fr}.problem-hero-spacious,.problem-core-spacious,.problem-step,.proof-spacious,.problem-bottom,.proof-stat{animation:none;opacity:1;transform:none}}
   </style>
 </head>
 <body>
   <main class="page problem-page">
-    <section class="shell card problem-card problem-card-final">
-      <div class="problem-hero">
-        <div class="eyebrow">02 / The problem</div>
-        <h1>Mortgage-capable buyers are locked out by a moving deposit target.</h1>
-        <p class="lead">The issue is not always affordability. Many buyers can support a mainstream senior mortgage, but cannot accumulate the deposit, transaction costs and settlement capital quickly enough.</p>
+    <section class="shell card problem-card problem-card-spacious">
+      <div class="problem-hero-spacious">
+        <div>
+          <div class="eyebrow">02 / The problem</div>
+          <h1>The deposit target keeps moving while buyers save.</h1>
+        </div>
+        <div class="problem-lead-block">
+          <div class="solve-line">Problem BuySooner solves</div>
+          <p>Many buyers can support a mainstream senior mortgage, but cannot accumulate the deposit, transaction costs and settlement capital quickly enough.</p>
+        </div>
       </div>
 
-      <div class="problem-block">
-        <div class="block-label">Core problem</div>
-        <p>A large segment of Australian buyers remains outside ownership despite being capable of servicing a senior mortgage. The binding constraint is often upfront capital, not weak credit.</p>
-        <p>The problem compounds because the target can keep moving while the buyer saves: rent continues, property prices in major capital cities may rise faster than deposit formation, transaction costs remain payable and suitable property choice can narrow.</p>
-      </div>
+      <section class="problem-core-spacious">
+        <div class="section-label">Core problem</div>
+        <div>
+          <p>A buyer may be mortgage-capable but still unable to transact. The issue is not necessarily income, credit quality or serviceability.</p>
+          <p>The issue is timing: the buyer cannot complete the upfront capital stack before rent, price growth and transaction costs move the goalposts again.</p>
+        </div>
+      </section>
 
-      <div class="problem-sequence">
-        <article class="sequence-row">
-          <span>01</span>
-          <div><h3>Mortgage capable</h3><p>Buyer can support a mainstream senior mortgage, subject to lender assessment.</p></div>
-        </article>
-        <article class="sequence-row">
-          <span>02</span>
-          <div><h3>Capital shortfall</h3><p>Buyer cannot complete the deposit, costs and settlement capital quickly enough.</p></div>
-        </article>
-        <article class="sequence-row">
-          <span>03</span>
-          <div><h3>Moving target</h3><p>While the buyer saves, rent continues and property prices may move faster than deposit formation.</p></div>
-        </article>
-      </div>
+      <section class="problem-sequence-spacious">
+        <article class="problem-step"><span class="num">01 / Bankable borrower</span><h3>Serviceability may exist.</h3><p>The customer may be capable of supporting a mainstream senior mortgage, subject to lender assessment.</p></article>
+        <article class="problem-step"><span class="num">02 / Upfront capital gap</span><h3>The transaction still fails.</h3><p>The customer cannot complete the deposit, costs and settlement capital quickly enough.</p></article>
+        <article class="problem-step"><span class="num">03 / Moving target</span><h3>Delay compounds the gap.</h3><p>While the customer saves, rent continues and property prices may move faster than deposit formation.</p></article>
+      </section>
 
-      <div class="proof-band">
-        <div class="proof-label">Proof points from customer roadmap research</div>
-        <div class="proof-grid">
-          <article class="proof-item">
-            <strong>560%</strong>
-            <h3>Home values surged</h3>
-            <p>Average capital-city house value increase since 2000.</p>
-          </article>
-          <article class="proof-item">
-            <strong>15%</strong>
-            <h3>Homes are less affordable</h3>
-            <p>Share of homes a typical household can afford.</p>
-          </article>
-          <article class="proof-item">
-            <strong>5+ yrs</strong>
-            <h3>Deposits still take years</h3>
-            <p>Average time to save a 20% deposit.</p>
-          </article>
+      <section class="proof-spacious">
+        <div class="proof-label-spacious">Proof points from customer roadmap research</div>
+        <div class="proof-grid-spacious">
+          <article class="proof-stat"><strong>560%</strong><h3>Home values surged</h3><p>Average capital-city house value increase since 2000.</p></article>
+          <article class="proof-stat"><strong>15%</strong><h3>Homes are less affordable</h3><p>Share of homes a typical household can afford.</p></article>
+          <article class="proof-stat"><strong>5+ yrs</strong><h3>Deposits still take years</h3><p>Average time to save a 20% deposit.</p></article>
         </div>
         <p class="source-note">Source: BuySooner roadmap prototype research pack.</p>
-      </div>
+      </section>
 
-      <div class="callout problem-takeaway">
-        <strong>Institutional takeaway:</strong> BuySooner targets mortgage-capable, deposit-constrained buyers. The opportunity is contribution-layer finance, not weak-credit lending.
-      </div>
-
-      <div class="nav">
-        <a class="secondary" href="00-title.html">Back</a>
-        <a href="02-market-problem.html">Next</a>
+      <div class="problem-bottom">
+        <div class="problem-takeaway-line"><strong>Institutional takeaway:</strong> BuySooner is not a weak-credit lending proposition. It is a contribution-layer solution for mortgage-capable buyers blocked by upfront capital.</div>
+        <div class="nav"><a class="secondary" href="00-title.html?v=spacious-cover">Back</a><a href="02-market-problem.html">Next</a></div>
       </div>
     </section>
   </main>
