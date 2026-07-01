@@ -14,10 +14,30 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbfb;color:#1
 (function(){
 var files=['roadmap-data.js','roadmap-cover.js','roadmap-cover-refinements.js','roadmap-page0-dream.js','roadmap-page0-dream-refinements.js','roadmap-page1.js','roadmap-page1-refinements.js','roadmap-page2.js','roadmap-page2-refinements.js','roadmap-page3.js','roadmap-page3-refinements.js','roadmap-page4.js','roadmap-page4-refinements.js','roadmap-page5.js','roadmap-page6.js','roadmap-page6-refinements.js','roadmap-page7.js','roadmap-page7-refinements.js','roadmap-page8.js','roadmap-page8-refinements.js','roadmap-page9.js','roadmap-page9-refinements.js','roadmap-page9a-calculator.js','roadmap-lvr-status-bands.js','roadmap-page9-exit-refinements.js','roadmap-page10.js','roadmap-page10-refinements.js','roadmap-page11.js','roadmap-page12.js','roadmap-page13-final.js','roadmap-page13-risk-button.js','roadmap-page7-to-8.js','roadmap-page8-to-9.js'];
 var i=0;
+function n(v){return Number(String(v||'').replace(/[^0-9.-]/g,''))||0;}
+function money(v){return new Intl.NumberFormat('en-AU',{style:'currency',currency:'AUD',maximumFractionDigits:0}).format(Math.round(n(v)));}
+function buildFromInput(){
+ try{
+  var raw=localStorage.getItem('BuySoonerRoadmapInput');
+  if(!raw)return null;
+  var d=JSON.parse(raw);
+  var price=n(d.price), deposit=n(d.deposit), rent=n(d.monthlyRent);
+  if(!price&&!deposit&&!d.name)return null;
+  var gap=Math.max(0,price*0.2-deposit);
+  var boost=gap;
+  var total=deposit+boost;
+  var bank=Math.max(0,price-total);
+  var formatted={targetPurchasePrice:money(price),customerContribution:money(deposit),buySoonerBoost:money(boost),totalDeposit:money(total),depositGap:money(gap),estimatedBankLoan:money(bank),currentRentMonthly:money(rent),livingExpenses:money(0),debts:money(0),creditCardLimits:money(0),income:money(0),depositPercent:price?((total/price)*100).toFixed(1)+'%':'0.0%'};
+  var out={capturedAt:new Date().toISOString(),source:'BuySooner roadmap fallback from calculator input',rawInputs:d,customer:{name:d.name||'Customer',buyerType:d.customerType==='upgrading'?'upgrader':'renter',dependants:0,income:0},property:{suburb:d.addressKnown==='yes'?d.address:d.targetArea,address:d.addressKnown==='yes'?d.address:'',targetPurchasePrice:price},finance:{customerContribution:deposit,currentRentMonthly:rent,livingExpenses:0,debts:0,creditCardLimits:0,buySoonerBoost:boost,estimatedBankLoan:bank},broker:{name:'Alex B Broker',firm:'AB Broker and Associates',email:'',phone:''},assumptions:{growthRate:0.05,refinanceStartYear:3,refinanceEndYear:5,refinanceTargetLvr:0.8},derived:{buySoonerBoost:boost,totalDeposit:total,depositGap:gap,depositPercent:price?total/price:0,estimatedBankLoan:bank,formatted:formatted}};
+  localStorage.setItem('BuySoonerRoadmapData',JSON.stringify(out));
+  window.BuySoonerRoadmapData=out;
+  return out;
+ }catch(e){return null;}
+}
 function loadNext(){
  if(i>=files.length){render();return;}
  var s=document.createElement('script');
- s.src=files[i++]+'?v=final-risk-button';
+ s.src=files[i++]+'?v=roadmap-input-fallback';
  s.onload=loadNext;
  s.onerror=loadNext;
  document.body.appendChild(s);
@@ -25,6 +45,7 @@ function loadNext(){
 function render(){
  var root=document.getElementById('roadmap-root');
  var data=window.BSRoadmap&&window.BSRoadmap.load?window.BSRoadmap.load():null;
+ if(!data)data=buildFromInput();
  if(data&&window.renderRoadmapCover){window.renderRoadmapCover(data,root);return;}
  if(data&&window.renderRoadmapPage1){window.renderRoadmapPage1(data,root);return;}
 }
