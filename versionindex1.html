@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuySooner Roadmap — Data Capture</title>
+  <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <style>
+    html,body{margin:0;width:100%;height:100%;background:#f7fbfb;overflow:hidden;font-family:Arial,Helvetica,sans-serif;color:#071f3a}
+    iframe{display:block;width:100vw;height:100vh;border:0;background:#f7fbfb}
+    .fallback{position:fixed;inset:0;display:none;place-items:center;padding:24px;background:#f7fbfb}
+    .card{width:min(92vw,720px);background:#fff;border:1px solid #d7e5e4;border-radius:24px;padding:34px;box-shadow:0 18px 50px rgba(7,31,58,.08)}
+    h1{margin:0 0 10px;font-family:Georgia,'Times New Roman',serif;font-size:38px;letter-spacing:-.04em}
+    p{margin:0 0 20px;color:#64748b;font-weight:700;line-height:1.5}
+    a{display:inline-block;border-radius:999px;background:#087a78;color:#fff;text-decoration:none;font-weight:900;padding:14px 20px}
+  </style>
+</head>
+<body>
+  <iframe id="roadmapIntake" src="versionindex1?v=roadmap-p1-html" title="BuySooner Page 1 data capture form"></iframe>
+  <main class="fallback" id="fallback">
+    <section class="card">
+      <h1>Open the BuySooner Page 1 intake</h1>
+      <p>The roadmap starts with the customer data capture form.</p>
+      <a href="versionindex1?v=roadmap-p1-html">Open Page 1 data capture form</a>
+    </section>
+  </main>
+  <script>
+    (function(){
+      var frame = document.getElementById('roadmapIntake');
+      var fallback = document.getElementById('fallback');
+      frame.addEventListener('error', function(){ fallback.style.display = 'grid'; frame.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>
