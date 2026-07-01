@@ -5,68 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>05 How BuySooner Works</title>
   <link rel="stylesheet" href="investor.css">
+  <style>
+    .works-card-spacious{max-width:1240px;min-height:820px;padding:54px 70px 38px!important;display:flex;flex-direction:column}.works-hero-spacious{display:grid;grid-template-columns:1.1fr .9fr;gap:58px;align-items:end;margin-bottom:38px}.works-hero-spacious h1{font-size:clamp(44px,4.8vw,66px);line-height:.96;letter-spacing:-.055em;max-width:780px;margin:10px 0 0;color:#071f3a}.works-lead{border-left:3px solid #087a78;padding-left:26px}.works-lead p{font-size:20px;line-height:1.48;color:#2d3d52;font-weight:820;margin:0;max-width:450px}.lead-label,.stage-num,.note-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950}.lead-label{margin-bottom:14px}
+    .lifecycle{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:28px;border-top:1px solid rgba(7,31,58,.16);padding-top:30px}.stage-row{display:grid;grid-template-columns:110px 280px 1fr;gap:28px;align-items:center;border-bottom:1px solid rgba(7,31,58,.10);padding:17px 0}.stage-row:last-child{border-bottom:0}.stage-num{font-size:12px}.stage-row h3{font-size:22px;line-height:1.12;color:#071f3a;margin:0}.stage-row p{font-size:15.5px;line-height:1.45;color:#43546b;font-weight:760;margin:0;max-width:650px}
+    .works-notes-spacious{display:grid;grid-template-columns:1fr 1fr;gap:34px;border-top:1px solid rgba(7,31,58,.14);padding-top:24px;margin-top:auto}.works-note-spacious{border-top:3px solid #087a78;padding-top:16px}.works-note-spacious h3{font-size:21px;color:#071f3a;margin:0 0 10px}.works-note-spacious p{font-size:15px;line-height:1.45;color:#43546b;font-weight:760;margin:0}.works-bottom-line{border-top:1px solid rgba(7,31,58,.14);padding-top:18px;margin-top:30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.takeaway-line{font-size:15px;line-height:1.45;color:#071f3a;font-weight:820;max-width:850px}.takeaway-line strong{color:#087a78}.works-card-spacious .nav{margin:0;min-width:190px}
+    .works-hero-spacious,.stage-row,.works-notes-spacious,.works-bottom-line{opacity:0;transform:translateY(28px);animation:worksRise .85s cubic-bezier(.16,.78,.2,1) forwards}.works-hero-spacious{animation-delay:.08s}.stage-row:nth-child(1){animation-delay:.34s}.stage-row:nth-child(2){animation-delay:.54s}.stage-row:nth-child(3){animation-delay:.74s}.stage-row:nth-child(4){animation-delay:.94s}.stage-row:nth-child(5){animation-delay:1.14s}.stage-row:nth-child(6){animation-delay:1.34s}.works-notes-spacious{animation-delay:1.58s}.works-bottom-line{animation-delay:1.82s}@keyframes worksRise{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:980px){.works-card-spacious{min-height:auto;padding:34px 24px!important}.works-hero-spacious{grid-template-columns:1fr;gap:24px}.works-hero-spacious h1{font-size:40px}.works-lead{border-left:0;border-top:3px solid #087a78;padding:18px 0 0}.stage-row{grid-template-columns:1fr;gap:8px}.works-notes-spacious{grid-template-columns:1fr}.works-bottom-line{grid-template-columns:1fr}.works-hero-spacious,.stage-row,.works-notes-spacious,.works-bottom-line{animation:none;opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <main class="page works-page">
-    <section class="shell card works-card">
-      <div class="works-hero reveal reveal-1">
-        <div class="eyebrow">05 / How BuySooner works</div>
-        <h1>BuySooner provides the contribution at settlement and is repaid at refinance or sale.</h1>
-        <p class="lead">The customer owns the property from day one, pays the senior mortgage, and has no monthly BuySooner repayment during the term.</p>
-      </div>
-
-      <div class="works-flow reveal reveal-2" aria-label="BuySooner lifecycle">
-        <article class="works-step">
-          <span>01</span>
-          <h3>Eligibility and application</h3>
-          <p>Customer is assessed against BuySooner eligibility, contribution limits and exit viability.</p>
-        </article>
-        <article class="works-step">
-          <span>02</span>
-          <h3>Senior mortgage approval</h3>
-          <p>The customer obtains a senior mortgage from a bank or non-bank lender. The senior lender remains first ranking.</p>
-        </article>
-        <article class="works-step">
-          <span>03</span>
-          <h3>BuySooner contribution</h3>
-          <p>BuySooner contributes the agreed capital layer at settlement to complete the purchase capital stack.</p>
-        </article>
-        <article class="works-step">
-          <span>04</span>
-          <h3>Customer ownership</h3>
-          <p>The customer is the legal owner from day one and occupies or holds the property in the ordinary way.</p>
-        </article>
-        <article class="works-step">
-          <span>05</span>
-          <h3>During the term</h3>
-          <p>The customer pays the senior mortgage. BuySooner does not charge monthly repayments, interest or compounding during the term.</p>
-        </article>
-        <article class="works-step">
-          <span>06</span>
-          <h3>Exit</h3>
-          <p>BuySooner is repaid at refinance or sale, with exit governed by the agreed formula, review process and credit policy.</p>
-        </article>
-      </div>
-
-      <div class="works-bottom reveal reveal-4">
-        <div class="works-note">
-          <strong>Simple operating model</strong>
-          <p>Assess eligibility, contribute at settlement, monitor the position, and manage exit through refinance or sale.</p>
-        </div>
-        <div class="works-note">
-          <strong>Customer payment position</strong>
-          <p>No monthly BuySooner repayment, no interest-style monthly charge and no compounding during the term.</p>
-        </div>
-      </div>
-
-      <div class="callout works-takeaway reveal reveal-5">
-        <strong>Institutional takeaway:</strong> BuySooner is a structured contribution-layer model. It is not a replacement mortgage, not a monthly repayment product and not a shared-ownership model.
-      </div>
-
-      <div class="nav reveal reveal-5">
-        <a class="secondary" href="03-existing-options.html">Back</a>
-        <a href="05-scenario.html">Next</a>
-      </div>
+    <section class="shell card works-card works-card-spacious">
+      <div class="works-hero-spacious"><div><div class="eyebrow">05 / How BuySooner works</div><h1>BuySooner contributes at settlement and exits at refinance or sale.</h1></div><div class="works-lead"><div class="lead-label">Operating model</div><p>The customer owns the property from day one, pays the senior mortgage, and has no monthly BuySooner repayment during the term.</p></div></div>
+      <section class="lifecycle" aria-label="BuySooner lifecycle"><article class="stage-row"><div class="stage-num">01</div><h3>Eligibility and application</h3><p>Customer is assessed against BuySooner eligibility, contribution limits and exit viability.</p></article><article class="stage-row"><div class="stage-num">02</div><h3>Senior mortgage approval</h3><p>The customer obtains a senior mortgage from a bank or non-bank lender. The senior lender remains first ranking.</p></article><article class="stage-row"><div class="stage-num">03</div><h3>BuySooner contribution</h3><p>BuySooner contributes the agreed capital layer at settlement to complete the purchase capital stack.</p></article><article class="stage-row"><div class="stage-num">04</div><h3>Customer ownership</h3><p>The customer is the legal owner from day one and occupies or holds the property in the ordinary way.</p></article><article class="stage-row"><div class="stage-num">05</div><h3>During the term</h3><p>The customer pays the senior mortgage. BuySooner does not charge monthly repayments, interest or compounding during the term.</p></article><article class="stage-row"><div class="stage-num">06</div><h3>Exit</h3><p>BuySooner is repaid at refinance or sale, with exit governed by the agreed formula, review process and credit policy.</p></article></section>
+      <section class="works-notes-spacious"><article class="works-note-spacious"><div class="note-label">Simple operating model</div><h3>Assess, contribute, monitor, exit.</h3><p>BuySooner assesses eligibility, contributes at settlement, monitors the position and manages exit through refinance or sale.</p></article><article class="works-note-spacious"><div class="note-label">Customer payment position</div><h3>No monthly BuySooner repayment.</h3><p>No monthly BuySooner repayment, no interest-style monthly charge and no compounding during the term.</p></article></section>
+      <div class="works-bottom-line"><div class="takeaway-line"><strong>Institutional takeaway:</strong> BuySooner is a structured contribution-layer model. It is not a replacement mortgage, not a monthly repayment product and not a shared-ownership model.</div><div class="nav"><a class="secondary" href="03-existing-options.html?v=solution-flow">Back</a><a href="05-scenario.html">Next</a></div></div>
     </section>
   </main>
 </body>
