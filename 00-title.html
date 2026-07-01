@@ -6,50 +6,65 @@
   <title>BuySooner Institutional Investor Presentation</title>
   <link rel="stylesheet" href="investor.css">
   <style>
-    .title-meta-row{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:8px}
-    .title-date{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:#087a78;white-space:nowrap}
-    .title-page-clean .title-copy,.title-page-clean .title-statement,.title-page-clean .title-logic,.title-page-clean .title-footer,.title-page-clean .nav{opacity:0;transform:translateY(16px);animation:titleLift .58s ease forwards}
-    .title-page-clean .title-copy{animation-delay:.05s}
-    .title-page-clean .title-statement{animation-delay:.18s}
-    .title-page-clean .title-logic{animation-delay:.31s}
-    .title-page-clean .title-footer{animation-delay:.44s}
-    .title-page-clean .nav{animation-delay:.57s}
-    .title-statement{position:relative;overflow:hidden}
-    .title-statement:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.46) 42%,transparent 72%);transform:translateX(-120%);animation:titleSweep 1.15s ease .78s forwards;pointer-events:none}
-    .logic-row{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-    .logic-row:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(7,31,58,.08);border-color:rgba(8,122,120,.34)}
-    @keyframes titleLift{to{opacity:1;transform:translateY(0)}}
-    @keyframes titleSweep{to{transform:translateX(120%)}}
-    @media(max-width:760px){.title-meta-row{display:block}.title-date{margin-top:8px}.title-page-clean .title-copy,.title-page-clean .title-statement,.title-page-clean .title-logic,.title-page-clean .title-footer,.title-page-clean .nav{animation:none;opacity:1;transform:none}}
+    .title-card-institutional{max-width:1120px;padding:50px 58px 36px!important}
+    .title-meta-row{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:22px}
+    .title-date{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:950;color:#087a78;white-space:nowrap}
+    .title-hero h1{font-size:clamp(52px,6vw,78px);line-height:.92;letter-spacing:-.06em;margin:0 0 18px;color:#071f3a;max-width:1050px}
+    .title-hero .lead{max-width:880px;font-size:clamp(19px,2vw,24px);line-height:1.42;color:#2d3d52;font-weight:820;margin-bottom:32px}
+    .title-lower{display:grid;grid-template-columns:1.02fr .98fr;gap:26px;align-items:stretch;margin:0 0 26px}
+    .cover-panel{border:1px solid rgba(7,31,58,.14);border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(234,246,245,.62));padding:28px 30px;box-shadow:0 18px 34px rgba(7,31,58,.055)}
+    .panel-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#087a78;font-weight:950;margin-bottom:16px}
+    .cover-panel p{font-size:16.5px;line-height:1.52;color:#2d3d52;font-weight:760;margin:0 0 16px}.cover-panel p:last-child{margin-bottom:0}
+    .logic-panel{border:1px solid rgba(7,31,58,.14);border-radius:22px;background:#fff;padding:24px 26px;box-shadow:0 18px 34px rgba(7,31,58,.045)}
+    .logic-panel .panel-label{margin-bottom:12px}.logic-stack{display:grid;gap:13px}
+    .logic-item{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;border-top:1px solid rgba(7,31,58,.10);padding-top:14px}.logic-item:first-child{border-top:0;padding-top:0}
+    .logic-item span{height:34px;width:34px;border-radius:999px;display:grid;place-items:center;background:#eaf6f5;color:#087a78;font-weight:950;font-size:12px;letter-spacing:.04em}
+    .logic-item h3{font-size:17px;margin:0 0 5px;color:#071f3a}.logic-item p{font-size:14px;line-height:1.42;color:#43546b;font-weight:760;margin:0}
+    .title-footer{border-top:1px solid rgba(7,31,58,.14);padding-top:14px;margin-top:4px}.title-footer p{font-size:10px;color:#66758a;font-weight:800;letter-spacing:.01em;margin:0}
+    .title-card-institutional .title-meta-row,.title-card-institutional .title-hero,.cover-panel,.logic-panel,.title-card-institutional .title-footer,.title-card-institutional .nav{opacity:0;transform:translateY(22px);animation:coverLift .78s cubic-bezier(.16,.78,.2,1) forwards}.title-card-institutional .title-meta-row{animation-delay:.04s}.title-card-institutional .title-hero{animation-delay:.18s}.cover-panel{animation-delay:.42s}.logic-panel{animation-delay:.58s}.title-card-institutional .title-footer{animation-delay:.90s}.title-card-institutional .nav{animation-delay:1.05s}.logic-item{opacity:0;transform:translateY(12px);animation:coverLift .58s cubic-bezier(.16,.78,.2,1) forwards}.logic-item:nth-child(1){animation-delay:.76s}.logic-item:nth-child(2){animation-delay:.90s}.logic-item:nth-child(3){animation-delay:1.04s}
+    .cover-panel,.logic-panel,.logic-item{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.cover-panel:hover,.logic-panel:hover{transform:translateY(-2px);box-shadow:0 22px 42px rgba(7,31,58,.075);border-color:rgba(8,122,120,.34)}
+    @keyframes coverLift{to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){.title-card-institutional{padding:34px 24px!important}.title-lower{grid-template-columns:1fr}.title-hero h1{font-size:44px}.title-card-institutional .title-meta-row,.title-card-institutional .title-hero,.cover-panel,.logic-panel,.title-card-institutional .title-footer,.title-card-institutional .nav,.logic-item{animation:none;opacity:1;transform:none}.title-meta-row{display:block}.title-date{margin-top:8px}}
   </style>
 </head>
 <body>
   <main class="page title-page title-page-clean">
-    <section class="shell card title-card title-card-clean">
-      <div class="title-copy">
-        <div class="title-meta-row">
-          <div class="eyebrow">Confidential investor discussion material</div>
-          <div class="title-date" data-dynamic-date>June 2026</div>
-        </div>
+    <section class="shell card title-card title-card-institutional">
+      <div class="title-meta-row">
+        <div class="eyebrow">Confidential investor discussion material</div>
+        <div class="title-date" data-dynamic-date>June 2026</div>
+      </div>
+
+      <div class="title-hero">
         <h1>BuySooner<br><span>Institutional Investor Presentation</span></h1>
         <p class="lead">Residential contribution-layer finance for deposit-constrained, mortgage-capable Australian home buyers.</p>
       </div>
-      <div class="title-statement">
-        <div class="statement-label">Opening proposition</div>
-        <p>BuySooner addresses a structural deposit-gap problem for mortgage-capable Australian home buyers.</p>
-        <p>The platform provides a defined contribution layer alongside customer equity and a senior mortgage, helping eligible customers buy earlier while creating governed contribution-layer exposure for institutional capital.</p>
+
+      <div class="title-lower">
+        <section class="cover-panel">
+          <div class="panel-label">Opening proposition</div>
+          <p>BuySooner addresses a structural deposit-gap problem for mortgage-capable Australian home buyers.</p>
+          <p>The platform provides a defined contribution layer alongside customer equity and a senior mortgage, helping eligible customers buy earlier.</p>
+          <p>For investors, the opportunity is governed contribution-layer exposure supported by policy, portfolio controls and defined exit pathways.</p>
+        </section>
+
+        <section class="logic-panel">
+          <div class="panel-label">Investment logic</div>
+          <div class="logic-stack">
+            <div class="logic-item"><span>01</span><div><h3>Investment context</h3><p>Mortgage-capable buyers are delayed by deposit formation, not necessarily by serviceability.</p></div></div>
+            <div class="logic-item"><span>02</span><div><h3>Product position</h3><p>BuySooner contributes a defined settlement layer beside customer equity and a senior mortgage.</p></div></div>
+            <div class="logic-item"><span>03</span><div><h3>Investor frame</h3><p>The opportunity is governed contribution-layer exposure, supported by credit policy, refinance discipline and downside controls.</p></div></div>
+          </div>
+        </section>
       </div>
-      <div class="title-logic">
-        <div class="logic-row"><span>01</span><div><h3>Investment context</h3><p>BuySooner addresses a structural deposit-gap problem affecting mortgage-capable Australian home buyers.</p></div></div>
-        <div class="logic-row"><span>02</span><div><h3>Product position</h3><p>The platform provides a defined contribution layer at settlement alongside customer equity and a senior mortgage.</p></div></div>
-        <div class="logic-row"><span>03</span><div><h3>Investor frame</h3><p>The opportunity is assessed as governed contribution-layer exposure, supported by credit policy, refinance discipline and downside controls.</p></div></div>
-      </div>
+
       <div class="title-footer">
         <p>Confidential investor discussion material | Contribution-layer residential finance | Australia | <span data-dynamic-date>June 2026</span></p>
       </div>
+
       <div class="nav">
         <a class="secondary" href="roadmap.html">Open prototype roadmap</a>
-        <a href="01-investor-thesis.html?v=inst-fix-2">Begin presentation</a>
+        <a href="01-investor-thesis.html?v=bottom-proof">Begin presentation</a>
       </div>
     </section>
   </main>
