@@ -69,6 +69,9 @@
       if (!numbers.length) return;
 
       var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var pageStart = performance.now();
+      var revealDelay = 1620;
+      var hasStarted = false;
 
       function setFinal(el){
         var target = Number(el.getAttribute('data-count-to')) || 0;
@@ -97,8 +100,15 @@
       }
 
       function start(){
+        if (hasStarted) return;
+        hasStarted = true;
         if (prefersReducedMotion) numbers.forEach(setFinal);
         else numbers.forEach(animateNumber);
+      }
+
+      function scheduleStart(){
+        var remainingRevealDelay = Math.max(0, revealDelay - (performance.now() - pageStart));
+        setTimeout(start, remainingRevealDelay);
       }
 
       if ('IntersectionObserver' in window) {
@@ -106,14 +116,14 @@
         var observer = new IntersectionObserver(function(entries){
           entries.forEach(function(entry){
             if (entry.isIntersecting) {
-              start();
+              scheduleStart();
               observer.disconnect();
             }
           });
         }, { threshold: 0.35 });
         observer.observe(proof || numbers[0]);
       } else {
-        setTimeout(start, 1700);
+        setTimeout(start, revealDelay);
       }
     })();
   </script>
