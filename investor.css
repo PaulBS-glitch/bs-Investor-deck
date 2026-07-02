@@ -25,3 +25,29 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);backgroun
 @media(max-width:1050px){.failure-grid{grid-template-columns:repeat(2,1fr)}.solution-layout{grid-template-columns:1fr}.capital-stack{max-width:520px}.works-flow{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:950px){.title-card,.problem-card,.failure-card,.solution-card,.works-card{padding:34px 28px}.title-copy h1{font-size:42px}.title-copy h1 span{white-space:normal}.title-copy .lead{font-size:20px}.title-statement{padding:22px}.title-card:after{display:none}.problem-hero h1,.failure-hero h1,.solution-hero h1,.works-hero h1{font-size:40px}.problem-grid,.problem-evidence,.failure-grid,.works-flow,.works-bottom{grid-template-columns:1fr}.solution-row{grid-template-columns:1fr}}
 @media(max-width:850px){h1{font-size:40px}.card{padding:28px}.grid,.grid.two,.deck-list{grid-template-columns:1fr}.lead{font-size:19px}}
+
+/* Mobile investor deck hardening */
+@media(max-width:760px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{min-width:0}
+  .page,.title-page,.problem-page,.failure-page,.solution-page,.works-page{display:block;min-height:auto;padding:14px 10px 28px;overflow-x:hidden}
+  .shell{width:100%;max-width:100%;min-width:0;margin:0 auto}
+  .card,.title-card,.problem-card,.failure-card,.solution-card,.works-card,.appendix-card,.risk-card,.exit-card,.econ-card,.team-card,.portfolio-card{width:100%!important;max-width:100%!important;min-width:0!important;min-height:auto!important;padding:24px 20px 26px!important;border-radius:24px!important;overflow:hidden!important}
+  .title-card:before,.title-card:after,.problem-card:before,.failure-card:before,.solution-card:before,.works-card:before{display:none!important}
+  h1,.title-copy h1,.problem-hero h1,.failure-hero h1,.solution-hero h1,.works-hero h1,.appendix-head h1,.risk-head h1,.exit-head h1,.econ-head h1,.team-head h1,.portfolio-head h1{font-size:clamp(30px,9.2vw,40px)!important;line-height:1.04!important;letter-spacing:-.045em!important;max-width:100%!important;overflow-wrap:normal!important;word-break:normal!important;margin-bottom:14px!important}
+  h2,.appendix-panel h2,.risk-panel h2,.side-panel h2,.deal-panel h2,.metrics h2,.action-panel h2,.capability h2{font-size:clamp(24px,7.2vw,32px)!important;line-height:1.08!important;max-width:100%!important}
+  p,.lead,.title-copy .lead,.takeaway,.bottom-line,.problem-takeaway,.failure-takeaway,.solution-takeaway,.works-takeaway,.appendix-head p,.risk-head p,.exit-head p,.econ-head p,.team-head p,.portfolio-head p{font-size:15px!important;line-height:1.42!important;max-width:100%!important;overflow-wrap:break-word!important}
+  .eyebrow,.label,.appendix-label,.appendix-num,.num,.risk-label,.risk-num,.control-label{font-size:10.5px!important;line-height:1.25!important;letter-spacing:.12em!important;overflow-wrap:break-word!important}
+  .grid,.grid.two,.deck-list,.problem-grid,.problem-evidence,.failure-grid,.solution-layout,.solution-row,.works-flow,.works-bottom,.appendix-grid,.portfolio-main,.risk-main,.exit-main,.econ-main,.team-grid,.capability,.exec-strip,.metric-grid,.capital-stack,.control-row,.action-row,.class-row,.portfolio-bottom,.risk-bottom,.exit-bottom,.econ-bottom,.team-bottom,.appendix-bottom{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+  .tile,.problem-tile,.failure-option,.solution-row,.works-step,.works-note,.appendix-item,.control-row,.action-row,.risk-row,.exit-row,.stack-row,.metric,.member,.exec-item{min-width:0!important;max-width:100%!important;padding:16px!important}
+  .title-statement,.problem-statement,.failure-statement,.callout,.action-panel,.risk-panel,.side-panel,.interpretation,.capability{max-width:100%!important;padding:16px!important;border-left:3px solid var(--teal)!important;border-top:0!important}
+  .nav{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:24px!important;width:100%!important;min-width:0!important;justify-content:stretch!important;align-items:stretch!important}
+  .nav a,.button,.deck-link{width:100%!important;max-width:100%!important;text-align:center!important;padding:14px 18px!important;font-size:15px!important;line-height:1.2!important;white-space:normal!important}
+  table{display:block;width:100%!important;overflow-x:auto!important;border-radius:16px!important}th,td{font-size:13px!important;padding:11px 12px!important;overflow-wrap:anywhere!important}
+}
+
+@media(max-width:430px){
+  .page,.title-page,.problem-page,.failure-page,.solution-page,.works-page{padding:12px 8px 24px!important}
+  .card,.title-card,.problem-card,.failure-card,.solution-card,.works-card,.appendix-card,.risk-card,.exit-card,.econ-card,.team-card,.portfolio-card{padding:22px 18px 24px!important;border-radius:22px!important}
+  h1,.title-copy h1,.problem-hero h1,.failure-hero h1,.solution-hero h1,.works-hero h1,.appendix-head h1,.risk-head h1,.exit-head h1,.econ-head h1,.team-head h1,.portfolio-head h1{font-size:clamp(28px,8.6vw,36px)!important;line-height:1.06!important}
+}
