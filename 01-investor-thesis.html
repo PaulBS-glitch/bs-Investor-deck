@@ -50,9 +50,9 @@
       <section class="proof-spacious">
         <div class="proof-label-spacious">Proof points from customer roadmap research</div>
         <div class="proof-grid-spacious">
-          <article class="proof-stat"><strong>560%</strong><h3>Home values surged</h3><p>Average capital-city house value increase since 2000.</p></article>
-          <article class="proof-stat"><strong>15%</strong><h3>Homes are less affordable</h3><p>Share of homes a typical household can afford.</p></article>
-          <article class="proof-stat"><strong>5+ yrs</strong><h3>Deposits still take years</h3><p>Average time to save a 20% deposit.</p></article>
+          <article class="proof-stat"><strong data-count-to="560" data-suffix="%">0%</strong><h3>Home values surged</h3><p>Average capital-city house value increase since 2000.</p></article>
+          <article class="proof-stat"><strong data-count-to="15" data-suffix="%">0%</strong><h3>Homes are less affordable</h3><p>Share of homes a typical household can afford.</p></article>
+          <article class="proof-stat"><strong data-count-to="5" data-suffix="+ yrs">0+ yrs</strong><h3>Deposits still take years</h3><p>Average time to save a 20% deposit.</p></article>
         </div>
         <p class="source-note">Source: BuySooner roadmap prototype research pack.</p>
       </section>
@@ -63,5 +63,59 @@
       </div>
     </section>
   </main>
+  <script>
+    (function(){
+      var numbers = Array.prototype.slice.call(document.querySelectorAll('[data-count-to]'));
+      if (!numbers.length) return;
+
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function setFinal(el){
+        var target = Number(el.getAttribute('data-count-to')) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        el.textContent = target.toLocaleString('en-AU') + suffix;
+      }
+
+      function animateNumber(el){
+        if (el.dataset.counted === 'true') return;
+        el.dataset.counted = 'true';
+
+        var target = Number(el.getAttribute('data-count-to')) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = Number(el.getAttribute('data-duration')) || 850;
+        var start = performance.now();
+
+        function tick(now){
+          var progress = Math.min((now - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var value = Math.round(target * eased);
+          el.textContent = value.toLocaleString('en-AU') + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      function start(){
+        if (prefersReducedMotion) numbers.forEach(setFinal);
+        else numbers.forEach(animateNumber);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var proof = document.querySelector('.proof-spacious');
+        var observer = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting) {
+              start();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.35 });
+        observer.observe(proof || numbers[0]);
+      } else {
+        setTimeout(start, 1700);
+      }
+    })();
+  </script>
 </body>
 </html>
