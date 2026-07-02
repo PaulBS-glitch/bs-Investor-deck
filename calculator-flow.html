@@ -5,11 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BuySooner Calculator Flow</title>
   <style>
-    html,body{margin:0;width:100%;height:100%;background:#f7fbfb;overflow:hidden}.flow-frame{width:100%;height:100vh;border:0;display:block}.flow-back{position:fixed;right:28px;bottom:28px;z-index:20;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 22px;background:#eaf6f5;color:#071f3a;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:900;border:1px solid #d7e5e4;box-shadow:0 12px 30px rgba(7,31,58,.14)}.flow-back:hover{background:#087a78;color:#fff}@media(max-width:720px){.flow-back{right:16px;bottom:16px;padding:12px 16px;font-size:12px}}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;background:#f7fbfb;overflow:auto}.flow-shell{width:100%;min-height:100vh}.flow-frame{width:100%;min-height:100vh;border:0;display:block;background:#f7fbfb}.flow-back{position:fixed;right:28px;bottom:28px;z-index:20;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 22px;background:#eaf6f5;color:#071f3a;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:900;border:1px solid #d7e5e4;box-shadow:0 12px 30px rgba(7,31,58,.14)}.flow-back:hover{background:#087a78;color:#fff}@media(max-width:760px){html,body{overflow:auto}.flow-shell{display:none}.flow-back{display:none}}
   </style>
 </head>
 <body>
   <a class="flow-back" href="12-appendix.html?v=appendix-directory-from-calculator">Back to appendix</a>
-  <iframe class="flow-frame" src="roadmap-data-form.html?v=appendix-calculator-flow" title="BuySooner customer calculator flow"></iframe>
+  <div class="flow-shell"><iframe id="calcFrame" class="flow-frame" src="roadmap-data-form.html?v=responsive-flow" title="BuySooner customer calculator flow"></iframe></div>
+  <script>
+    (function(){
+      if(window.matchMedia && window.matchMedia('(max-width:760px)').matches){
+        window.location.replace('roadmap-data-form.html?v=mobile-full-page');
+        return;
+      }
+      var frame=document.getElementById('calcFrame');
+      function setHeight(h){
+        var next=Math.max(window.innerHeight, Number(h)||0);
+        if(frame) frame.style.height=next+'px';
+      }
+      window.addEventListener('message',function(event){
+        if(!event.data || event.data.type!=='bs-resize') return;
+        setHeight(event.data.height);
+      });
+      window.addEventListener('resize',function(){setHeight(frame?frame.offsetHeight:window.innerHeight);});
+      setHeight(window.innerHeight);
+    })();
+  </script>
 </body>
 </html>
