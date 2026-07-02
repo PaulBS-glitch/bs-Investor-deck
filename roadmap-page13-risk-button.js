@@ -4,11 +4,11 @@
       root=root||document;
       var btn=root.querySelector('#rm13Print');
       if(!btn)return;
-      btn.textContent='Appendix 2: How BuySooner evaluates risk';
+      btn.textContent='Back to BuySooner appendix';
       btn.setAttribute('type','button');
       btn.onclick=function(e){
         if(e)e.preventDefault();
-        window.location.href='13-risk-appendix.html?v=from-final-roadmap';
+        window.location.href='12-appendix.html?v=appendix-directory-from-roadmap';
         return false;
       };
     }catch(e){}
