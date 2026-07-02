@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BuySooner Roadmap</title>
 <style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbfb;color:#1f2933;padding:28px}#roadmap-root{max-width:1120px;margin:0 auto}.empty{background:#fff;border:1px solid #d7e5e4;border-radius:24px;padding:30px;box-shadow:0 18px 50px rgba(7,31,58,.08)}.empty h1{margin:0 0 10px;color:#071f3a;font-size:34px}.empty p{margin:0;color:#64748b;font-size:16px;line-height:1.5;font-weight:700}
+*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbfb;color:#1f2933;padding:clamp(14px,2.4vw,28px)}#roadmap-root{width:min(1120px,calc(100vw - 28px));max-width:1120px;margin:0 auto;min-width:0}#roadmap-root *{box-sizing:border-box}#roadmap-root img,#roadmap-root svg,#roadmap-root canvas,#roadmap-root video{max-width:100%;height:auto}#roadmap-root table{width:100%;table-layout:fixed;border-collapse:collapse}#roadmap-root th,#roadmap-root td{overflow-wrap:anywhere;word-break:normal}#roadmap-root button,#roadmap-root a{max-width:100%}.empty{background:#fff;border:1px solid #d7e5e4;border-radius:24px;padding:30px;box-shadow:0 18px 50px rgba(7,31,58,.08)}.empty h1{margin:0 0 10px;color:#071f3a;font-size:clamp(28px,5vw,34px);line-height:1.05}.empty p{margin:0;color:#64748b;font-size:16px;line-height:1.5;font-weight:700}@media(max-width:760px){body{padding:12px}#roadmap-root{width:100%;max-width:none}.empty{padding:24px;border-radius:20px}#roadmap-root [class*="grid"],#roadmap-root [class*="cols"],#roadmap-root [class*="columns"]{grid-template-columns:1fr!important}#roadmap-root [class*="actions"],#roadmap-root [class*="buttons"],#roadmap-root .nav{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}#roadmap-root [class*="actions"] > *,#roadmap-root [class*="buttons"] > *,#roadmap-root .nav > *{width:100%!important;text-align:center!important}}
 </style>
 </head>
 <body>
@@ -13,15 +13,17 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fbfb;color:#1
 <script src="appendix-back-button.js?v=appendix-return"></script>
 <script>
 (function(){
+function sendHeight(){try{window.parent.postMessage({type:'bs-resize',height:document.documentElement.scrollHeight},'*');}catch(e){}}
+window.addEventListener('load',sendHeight);window.addEventListener('resize',sendHeight);setInterval(sendHeight,700);
 var critical=['roadmap-data.js','roadmap-cover.js','roadmap-cover-refinements.js'];
 var rest=['roadmap-page0-dream.js','roadmap-page0-dream-refinements.js','roadmap-page1.js','roadmap-page1-refinements.js','roadmap-page2.js','roadmap-page2-refinements.js','roadmap-page3.js','roadmap-page3-refinements.js','roadmap-page4.js','roadmap-page4-refinements.js','roadmap-page5.js','roadmap-page6.js','roadmap-page6-refinements.js','roadmap-page7.js','roadmap-page7-refinements.js','roadmap-page8.js','roadmap-page8-refinements.js','roadmap-page9.js','roadmap-page9-refinements.js','roadmap-page9a-calculator.js','roadmap-lvr-status-bands.js','roadmap-page9-exit-refinements.js','roadmap-page10.js','roadmap-page10-refinements.js','roadmap-page11.js','roadmap-page12.js','roadmap-page13-final.js','roadmap-page13-risk-button.js','roadmap-page7-to-8.js','roadmap-page8-to-9.js'];
 var loaded={};
 function loadScript(src,cb){
  if(loaded[src]){if(cb)cb();return;}
  var s=document.createElement('script');
- s.src=src+'?v=roadmap-fast-load';
- s.onload=function(){loaded[src]=true;if(cb)cb();};
- s.onerror=function(){loaded[src]=true;if(cb)cb();};
+ s.src=src+'?v=roadmap-responsive';
+ s.onload=function(){loaded[src]=true;if(cb)cb();sendHeight();};
+ s.onerror=function(){loaded[src]=true;if(cb)cb();sendHeight();};
  document.body.appendChild(s);
 }
 function loadSeries(list,done){
@@ -53,15 +55,17 @@ function render(){
  var root=document.getElementById('roadmap-root');
  var data=window.BSRoadmap&&window.BSRoadmap.load?window.BSRoadmap.load():null;
  if(!data)data=buildFromInput();
- if(data&&window.renderRoadmapCover){window.renderRoadmapCover(data,root);return;}
- if(data&&window.renderRoadmapPage1){window.renderRoadmapPage1(data,root);return;}
+ if(data&&window.renderRoadmapCover){window.renderRoadmapCover(data,root);sendHeight();return;}
+ if(data&&window.renderRoadmapPage1){window.renderRoadmapPage1(data,root);sendHeight();return;}
  root.innerHTML='<section class="empty"><h1>No roadmap data found</h1><p>Complete the prototype first, then open this roadmap.</p></section>';
+ sendHeight();
 }
 function warmRest(){
- var run=function(){loadSeries(rest);};
+ var run=function(){loadSeries(rest,sendHeight);};
  if('requestIdleCallback' in window){requestIdleCallback(run,{timeout:900});}else{setTimeout(run,250);}
 }
 loadSeries(critical,function(){render();warmRest();});
+new MutationObserver(sendHeight).observe(document.body,{childList:true,subtree:true,attributes:true});
 })();
 </script>
 </body>
