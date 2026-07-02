@@ -12,12 +12,12 @@
 <main id="roadmap-root"><section class="empty"><h1>Loading your roadmap</h1><p>Preparing your personalised BuySooner plan.</p></section></main>
 <script>
 (function(){
-var critical=['roadmap-data.js','roadmap-cover.js'];
+var critical=['roadmap-data.js','roadmap-cover.js','roadmap-page1.js'];
 var loaded={};
 function loadScript(src,cb){
  if(loaded[src]){if(cb)cb();return;}
  var s=document.createElement('script');
- s.src=src+'?v=roadmap-cover-only';
+ s.src=src+'?v=roadmap-page1-nav';
  s.onload=function(){loaded[src]=true;if(cb)cb();};
  s.onerror=function(){loaded[src]=true;if(cb)cb();};
  document.body.appendChild(s);
