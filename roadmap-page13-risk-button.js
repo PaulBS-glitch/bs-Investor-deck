@@ -3,14 +3,24 @@
     try{
       root=root||document;
       var btn=root.querySelector('#rm13Print');
-      if(!btn)return;
-      btn.textContent='Back to BuySooner appendix';
-      btn.setAttribute('type','button');
-      btn.onclick=function(e){
-        if(e)e.preventDefault();
+      if(!btn||btn.dataset.bsAppendixReturnPatched==='true')return;
+
+      var clean=btn.cloneNode(true);
+      clean.id='rm13Print';
+      clean.textContent='Back to BuySooner appendix';
+      clean.setAttribute('type','button');
+      clean.dataset.bsAppendixReturnPatched='true';
+      clean.onclick=null;
+      clean.addEventListener('click',function(e){
+        if(e){
+          e.preventDefault();
+          e.stopPropagation();
+          if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+        }
         window.location.href='12-appendix.html?v=appendix-directory-from-roadmap';
         return false;
-      };
+      });
+      btn.parentNode.replaceChild(clean,btn);
     }catch(e){}
   }
   function install(){
