@@ -10,15 +10,14 @@
 </head>
 <body>
 <main id="roadmap-root"><section class="empty"><h1>Loading your roadmap</h1><p>Preparing your personalised BuySooner plan.</p></section></main>
-<script src="appendix-back-button.js?v=appendix-return"></script>
 <script>
 (function(){
-var critical=['roadmap-data.js','roadmap-cover.js','roadmap-cover-refinements.js'];
+var critical=['roadmap-data.js','roadmap-cover.js'];
 var loaded={};
 function loadScript(src,cb){
  if(loaded[src]){if(cb)cb();return;}
  var s=document.createElement('script');
- s.src=src+'?v=roadmap-light-entry';
+ s.src=src+'?v=roadmap-cover-only';
  s.onload=function(){loaded[src]=true;if(cb)cb();};
  s.onerror=function(){loaded[src]=true;if(cb)cb();};
  document.body.appendChild(s);
