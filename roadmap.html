@@ -12,12 +12,12 @@
 <main id="roadmap-root"><section class="empty"><h1>Loading your roadmap</h1><p>Preparing your personalised BuySooner plan.</p></section></main>
 <script>
 (function(){
-var critical=['roadmap-data.js','roadmap-cover.js','roadmap-page0-dream.js','roadmap-page1.js','roadmap-page1-mobile-fix.js','roadmap-page2.js','roadmap-page3.js','roadmap-page4.js','roadmap-page5.js','roadmap-page6.js','roadmap-page7.js','roadmap-page8.js','roadmap-page9.js','roadmap-page9a-calculator.js','roadmap-lvr-status-bands.js','roadmap-page10.js','roadmap-page11.js','roadmap-page12.js','roadmap-page13-final.js','roadmap-page7-to-8.js','roadmap-page8-to-9.js','roadmap-page13-risk-button.js'];
+var critical=['roadmap-data.js','roadmap-cover.js','roadmap-page0-dream.js','roadmap-page1.js','roadmap-page1-mobile-fix.js','roadmap-page2.js','roadmap-page3.js','roadmap-page4.js','roadmap-page5.js','roadmap-page6.js','roadmap-page7.js','roadmap-page8.js','roadmap-page9.js','roadmap-page9a-calculator.js','roadmap-lvr-status-bands.js','roadmap-page10.js','roadmap-page11.js','roadmap-page12.js','roadmap-page13-final.js','roadmap-page7-to-8.js','roadmap-page8-to-9.js','roadmap-page13-risk-button.js','appendix-return-no-print.js'];
 var loaded={};
 function loadScript(src,cb){
  if(loaded[src]){if(cb)cb();return;}
  var s=document.createElement('script');
- s.src=src+'?v=roadmap-page1-mobile-fix';
+ s.src=src+'?v=appendix-return-no-print';
  s.onload=function(){loaded[src]=true;if(cb)cb();};
  s.onerror=function(){loaded[src]=true;if(cb)cb();};
  document.body.appendChild(s);
